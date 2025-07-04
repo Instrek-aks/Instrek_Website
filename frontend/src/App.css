@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+/* Custom scrollbar styling */
+.custom-scroll {
+  overflow-y: auto;
+  max-height: 160px; /* adjust if needed */
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #ea6220; /* your brand color */
+  border-radius: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 50s linear infinite;
+}

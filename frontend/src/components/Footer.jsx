@@ -1,199 +1,213 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "./Button";
-import { Input } from "./Input";
-import { Checkbox } from "./Checkbox";
+import { useState } from "react";
+import {
+  ArrowRight,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+  Youtube,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [agreed, setAgreed] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email && agreed) {
+      console.log("Newsletter signup:", email);
+      setEmail("");
+      setAgreed(false);
+    }
+  };
+
+  const handleLinkClick = (href) => {
+    // For hash links (internal page sections)
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
+
+    // For regular routes, navigate first then scroll
+    navigate(href);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }, 0);
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }, 0);
+  };
+
+  const footerLinks = {
+    company: [
+      //{ name: "About Us", href: "#about" },
+      { name: "AI-driven IT Services", href: "/blog/3" },
+      { name: "Smart City Solutions", href: "/blog/1" },
+      { name: "Our Team", href: "/team" },
+    ],
+    services: [
+      // { name: "Training & Skilling", href: "/services/training" },
+      { name: "Solutions", href: "/services-page" },
+      { name: "Blog", href: "/blog" },
+      {
+        name: "Connect",
+        href: "https://www.linkedin.com/company/instrek-technologies/posts/",
+      },
+    ],
+  };
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      icon: <Linkedin size={20} />,
+      href: "https://www.linkedin.com/company/instrek-technologies/posts/",
+    },
+  ];
+
   return (
     <footer
-      className="bg-[#121212] text-white min-h-screen flex flex-col  text-[15px]"
+      className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800/80 text-white"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
-      {/* Main Footer Content */}
-      <div className="flex-1 px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <div className="flex flex-col lg:flex-row justify-between items-start mb-20">
-            {/* Logo and Company Info */}
-            <div className="mb-12 lg:mb-0">
-              <div className="mb-4">
-                <h1 className="text-4xl text-[#EA6220] font-bold tracking-tight">
-                  Instrek
-                </h1>
-                <h1 className="text-4xl font-bold tracking-tight">
-                  Technologies
-                </h1>
-                <p className="text-sm tracking-wider text-gray-400 mt-2">
-                  A SOFTWARE COMPANY
-                </p>
-              </div>
-              <div className="mt-8">
-                <p className="text-sm text-gray-400 mb-2">WE ENGINEER</p>
-                <p className="text-sm text-gray-400">DIGITAL BUSINESS</p>
-              </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Newsletter Section */}
+          <div className="space-y-8">
+            <div
+              onClick={handleLogoClick}
+              className="block bg-transparent w-fit px-4 py-2 rounded hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              <img
+                src="/optimized/Logo_White.webp"
+                alt="Instrek Logo"
+                className="h-20 w-auto"
+              />
             </div>
 
-            {/* Contact Info */}
-            <div className="text-right">
-              <a
-                href="mailto:hello@futuremind.com"
-                className="text-sm hover:text-gray-300 transition-colors underline"
-              >
-                HELLO@INSTREK.COM
-              </a>
-              <p className="text-sm mt-2">+91 23456-7890</p>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">
+                Stay in the loop and sign up for the Instrek newsletter:
+              </h3>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full px-6 py-4 rounded-full bg-white text-gray-900 placeholder-gray-500 pr-16 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors"
+                  >
+                    <ArrowRight size={20} />
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          {/* Links Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
-              <nav className="space-y-3">
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  ABOUT US
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  AI-DRIVEN IT SERVICES
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  SMART CITY SOLUTIONS
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  ACCESSIBILITY
-                </a>
-              </nav>
+              <h4 className="text-xl font-semibold text-[#ea4820] mb-6">
+                Company
+              </h4>
+              <ul className="space-y-4">
+                {footerLinks.company.map((link) => (
+                  <li key={link.name}>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-white transition-colors text-lg"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => handleLinkClick(link.href)}
+                        className="text-gray-300 hover:text-white transition-colors text-lg text-left"
+                      >
+                        {link.name}
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div>
-              <nav className="space-y-3">
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  TRAINING AND SKILLING
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  SOLUTIONS
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  INSIGHTS
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  CONTACT
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  PRESS OFFICE
-                </a>
-              </nav>
-            </div>
-            <div className="md:col-start-4">
-              <nav className="space-y-3">
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  FACEBOOK
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  LINKEDIN
-                </a>
-                <a
-                  href="#"
-                  className="block text-sm hover:text-gray-300 transition-colors underline"
-                >
-                  INSTAGRAM
-                </a>
-              </nav>
-            </div>
-          </div>
-
-          {/* Newsletter Subscription */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-7xl font-light mb-8">
-              Get Smart with{" "}
-              <span className="bg-gradient-to-r from-orange-400  to-white bg-clip-text text-transparent">
-                Instrek{" "}
-              </span>
-            </h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              A BETTER EXPERIENCE FOR YOUR CUSTOMERS WITH FUTURE MIND.
-            </p>
-
-            {/* Email Subscription Form */}
-            <div className="max-w-md mx-auto mb-8">
-              <div className="flex">
-                <Input
-                  type="email"
-                  placeholder="E-MAIL"
-                  className="bg-transparent border-gray-600 border-r-0 rounded-r-none text-white placeholder:text-gray-500 focus:border-gray-400"
-                />
-                <Button
-                  size="icon"
-                  className="bg-transparent border border-gray-600 border-l-0 rounded-l-none hover:bg-gray-800"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Privacy Checkbox */}
-            <div className="flex items-start space-x-3 max-w-3xl mx-auto text-left">
-              <Checkbox id="privacy" className="mt-1 border-gray-600" />
-              <label
-                htmlFor="privacy"
-                className="text-sm text-gray-400 leading-relaxed"
-              >
-                I agree to the processing of my data by Future Mind Sp. z o.o.
-                for marketing purposes, including sending emails (newsletters
-                and educational materials). For details see the{" "}
-                <a href="#" className="underline hover:text-gray-300">
-                  Privacy Policy
-                </a>
-                .
-              </label>
+              <h4 className="text-xl font-semibold text-[#ea4820] mb-6">
+                Services
+              </h4>
+              <ul className="space-y-4">
+                {footerLinks.services.map((link) => (
+                  <li key={link.name}>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-white transition-colors text-lg"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => handleLinkClick(link.href)}
+                        className="text-gray-300 hover:text-white transition-colors text-lg text-left"
+                      >
+                        {link.name}
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800 px-8 py-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>© 2025 INSTREK TECH.</p>
-          <div className="flex space-x-8 mt-4 md:mt-0">
-            <span>ALL RIGHTS RESERVED</span>
-            <a
-              href="#"
-              className="hover:text-gray-300 transition-colors underline"
-            >
-              PRIVACY POLICY
-            </a>
+        {/* Social Media & Copyright */}
+        <div className="mt-16 pt-8 border-t border-gray-700">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div className="text-gray-400">© Instrek Technologies</div>
+
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-400">All Rights Reserved 2025</span>
+              <div className="flex space-x-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-[#ea4820] transition-colors"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,86 +1,73 @@
-import React, { useState, useEffect } from "react";
+import React, { lazy } from "react";
+import TestimonialCard from "../components/TestimonialCard";
+//const TestimonialCard = lazy(() => import("./TestimonialCard"));
+import { Quote } from "lucide-react";
 
-const TestimonialsSection = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
+const Index = () => {
   const testimonials = [
     {
-      quote:
-        "Thank goodness I was never sent to school; it would have rubbed off some of the originality.; it would have rubbed off some of the originality.",
-      author: "BEATRIX POTTER, AUTHOR",
+      id: 1,
+      quote: "Awesome tool!",
+      description:
+        "Like this video and ask your questions in the comment section. Don't forget to subscribe to Easy Tutorials",
+      name: "Olivia Wilson",
+      title: "Founder of Borcelle",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face",
     },
     {
-      quote:
-        "The best time to plant a tree was 20 years ago. The second best time is now. This perfectly captures our approach to digital transformation.",
-      author: "STEVE JOBS, APPLE",
+      id: 2,
+      quote: "Super cool!",
+      description:
+        "Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est mist aliquet elit ac nisl.",
+      name: "Matt Zhang",
+      title: "CEO at Borcelle",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face",
     },
     {
-      quote:
-        "Innovation distinguishes between a leader and a follower. We strive to be leaders in everything we create.",
-      author: "ELON MUSK, TESLA",
+      id: 3,
+      quote: "Awesome tool!",
+      description:
+        "Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est mist aliquet elit ac nisl.",
+      name: "Hannah Morales",
+      title: "CFO at Borcelle",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face",
     },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="py-20 bg-gradient-to-br from-cyan-500 to-teal-600 relative overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
-        }}
-      ></div>
+    <div
+      className="text-white relative"
+      style={{
+        backgroundImage: `url('./optimized/testimonial.webp')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        fontFamily: "'PP Neue Montreal', sans-serif",
+      }}
+    >
+      {/* Optional overlay for better text contrast */}
+      <div className="absolute inset-0 bg-black/90 z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-white mb-16">TESTIMONIALS</h2>
+      <div className="relative z-10 container mx-auto px-6 py-16">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white text-center">
+            TESTIMONIALS
+          </h1>
+        </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative h-48 flex items-center justify-center">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-all duration-1000 ${
-                  index === currentTestimonial
-                    ? "opacity-100 transform translate-y-0"
-                    : "opacity-0 transform translate-y-8"
-                }`}
-              >
-                <blockquote className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
-                  "{testimonial.quote}"
-                </blockquote>
-                <cite className="text-white/80 font-medium">
-                  - {testimonial.author}
-                </cite>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination Dots */}
-          <div className="flex justify-center space-x-3 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial
-                    ? "bg-white scale-125"
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </div>
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default TestimonialsSection;
+export default Index;
