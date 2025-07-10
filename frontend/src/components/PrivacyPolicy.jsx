@@ -169,9 +169,9 @@ export default function PrivacyPolicy() {
             In compliance with Rule 5(9) of the Indian IT Rules, 2011 and DPDPA:
           </p>
           <address className="not-italic mt-2 text-white">
-            <strong>Grievance Officer</strong>
+            {/* <strong>Grievance Officer</strong>
             <br />
-            Name: [To be updated]
+            Name: [To be updated] */}
             <br />
             Email:{" "}
             <a
@@ -181,11 +181,11 @@ export default function PrivacyPolicy() {
               connect@instrek.com
             </a>
             <br />
-            Phone: +91-
+            {/* Phone: +91-
+            <br /> */}
+            Address: C-18, Second floor, Pamposh Enclave,
             <br />
-            Address: 912, SuryaKiran Building, KG Marg,
-            <br />
-            Connaught Place, Delhi – 110001
+            New Delhi - 110048
           </address>
         </Section>
       </div>
