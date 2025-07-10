@@ -1080,7 +1080,7 @@ const DroneServices = () => {
       <div ref={containerRef} className="relative">
         {/* Fixed Position Header */}
         <div className="relative z-10 px-4 md:px-6 text-center py-12 md:py-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
+          <h2 className="pt-6 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
             FUTURE MIND TECHNOLOGY <span className="text-white">SERVICES</span>
           </h2>
           {/* <p className="text-lg md:text-2xl leading-relaxed text-white mt-4 max-w-3xl mx-auto text-center font-light">
