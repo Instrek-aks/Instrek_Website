@@ -689,7 +689,7 @@ const droneCardData = [
     titleLine2: "Intelligence",
     description:
       "From traffic systems to medical diagnosis—AI that understands and acts.",
-    image: "/optimized/images/robo.webp",
+    image: "/optimized/robo1.jpg",
     headline: "Making Machines Think Humanly",
     overview:
       "We deploy conversational AI, generative AI, and agentic bots for domains like healthcare, fintech, transport, and education.",
