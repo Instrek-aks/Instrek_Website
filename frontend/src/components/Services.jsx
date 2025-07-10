@@ -790,15 +790,15 @@ const droneCardData = [
       },
       {
         image: "/capabilities/EmbeddedRobo.webp",
-        text: "Embedded robotics platforms",
+        text: "Embedded Robotics Platforms",
       },
       {
         image: "/capabilities/HandsOnRobo.webp",
-        text: "Hands on Robotics Trainings",
+        text: "Remote Device Control Systems",
       },
       {
         image: "/capabilities/EmbeddedAuto.webp",
-        text: "Embedded Roboticd Platforms",
+        text: "Embedded Robotoid Platforms",
       },
     ],
     impact:
