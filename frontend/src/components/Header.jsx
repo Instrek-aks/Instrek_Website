@@ -33,6 +33,30 @@ const Header = () => {
         return;
       }
 
+      // If we're on services page, set active menu to Services
+      if (pathname === "/services-page") {
+        setActiveMenu("Services");
+        return;
+      }
+
+      // If we're on team page, set active menu to Team
+      if (pathname === "/team") {
+        setActiveMenu("Team");
+        return;
+      }
+
+      // If we're on contact page, set active menu to Contact
+      if (pathname === "/contact-us") {
+        setActiveMenu("Contact");
+        return;
+      }
+
+      // If we're on privacy policy page, no specific menu item to highlight
+      if (pathname === "/privacy-policy") {
+        setActiveMenu(""); // No active menu for privacy policy
+        return;
+      }
+
       // If we're on home page, check scroll position for sections
       if (pathname === "/") {
         const sections = ["home", "about", "services", "team"];

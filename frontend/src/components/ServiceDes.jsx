@@ -7,6 +7,22 @@ const ServiceDes = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Scroll to top when component mounts or service data changes
+  useEffect(() => {
+    // Use requestAnimationFrame to ensure the scroll happens after the component renders
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+  }, [location.state?.service]);
+
+  // Also scroll to top when component first mounts
+  useEffect(() => {
+    // Only scroll to top if we have service data or if it's the initial mount
+    if (location.state?.service || !location.state) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   const serviceData = location.state?.service || {
     titleLine1: "Our",
     titleLine2: "Services",
