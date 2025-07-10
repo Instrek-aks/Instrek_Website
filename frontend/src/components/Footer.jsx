@@ -136,7 +136,7 @@ const Footer = () => {
           text: "R&D Projects in Drones",
         },
         {
-          image: "/optimized/images/workforceTrain.webp",
+          image: "/capabilities/connectedDrones.webp",
           text: "Connected Drones with Encrypted Communications",
         },
       ],
@@ -166,7 +166,7 @@ const Footer = () => {
           text: "Battery storage solutions",
         },
         {
-          image: "/optimized/images/digitaltrans.webp",
+          image: "/capabilities/RenewableLabs.webp",
           text: "Renewable energy labs and training programs",
         },
       ],
@@ -195,7 +195,7 @@ const Footer = () => {
           text: "EV maintenance & repair labs",
         },
         {
-          image: "/optimized/images/blockchainlern.webp",
+          image: "/capabilities/EVmaintance.webp",
           text: "Integrated EV education ecosystem",
         },
       ],
@@ -221,7 +221,7 @@ const Footer = () => {
           text: " Agentic AI for Effortless Transactions",
         },
         {
-          image: "/optimized/images/digitaltrans.webp",
+          image: "/capabilities/AiForSkill.webp",
           text: "AI for Skill India",
         },
         {
@@ -243,7 +243,7 @@ const Footer = () => {
         "We build connected ecosystems for energy, utilities, and mobility using smart sensors, controllers, and IoT hubs.",
       capabilities: [
         {
-          image: "/optimized/images/smartcity.webp",
+          image: "/capabilities/Pridictive.webp",
           text: "Predictive Maintainance using IoT",
         },
         {
@@ -255,7 +255,7 @@ const Footer = () => {
           text: "Embedded Automation Controllers",
         },
         {
-          image: "/optimized/images/digitaltrans.webp",
+          image: "/capabilities/Handson.webp",
           text: "Hands on IoT Trainings",
         },
       ],
@@ -273,7 +273,7 @@ const Footer = () => {
         "From digital ID systems to credential verification, our blockchain solutions deliver data integrity and user ownership.",
       capabilities: [
         {
-          image: "/capabilities/BlockchainIdenetity.webp",
+          image: "/capabilities/BlockchainBased.webp",
           text: "Blockchain-based identity platforms",
         },
         {
@@ -307,15 +307,15 @@ const Footer = () => {
           text: "Remote device control systems",
         },
         {
-          image: "/optimized/images/iot.webp",
+          image: "/capabilities/EmbeddedRobo.webp",
           text: "Embedded robotics platforms",
         },
         {
-          image: "/optimized/images/digitaltrans.webp",
+          image: "/capabilities/HandsOnRobo.webp",
           text: "Hands on Robotics Trainings",
         },
         {
-          image: "/optimized/images/workforceTrain.webp",
+          image: "/capabilities/EmbeddedAuto.webp",
           text: "Embedded Roboticd Platforms",
         },
       ],
@@ -337,15 +337,15 @@ const Footer = () => {
           text: "Strategic Data Consulting for Business Growth",
         },
         {
-          image: "/optimized/icons/analytics.svg",
+          image: "/capabilities/AdvancedAnaly.webp",
           text: "Advanced Analytics Delivering Actionable Business Insights",
         },
         {
-          image: "/optimized/icons/reporting.svg",
+          image: "/capabilities/ReliableData.webp",
           text: "Reliable Data Engineering and Seamless Integration",
         },
         {
-          image: "/optimized/icons/migration.svg",
+          image: "/capabilities/BussinessIntelli.webp",
           text: "Business Intelligence Solutions for Informed Decisions",
         },
       ],
@@ -388,17 +388,16 @@ const Footer = () => {
       description:
         "Hands-on training in AI, Drones, EVs & more. Learn today, earn tomorrow.",
       image: "/optimized/images/strategic.webp",
-
       headline: "Building India's Tech Talent from Grassroots to Greatness",
       overview:
         "From Grade 1 to 70+, our hands-on training covers AI, EVs, Drones, IoT, and Robotics using certified trainers and modular tools.",
       capabilities: [
         {
-          image: "/optimized/icons/stem.svg",
+          image: "/capabilities/Handson.webp",
           text: "Hands on Drone Trainings",
         },
         {
-          image: "/optimized/images/strategic.webp",
+          image: "/capabilities/HandsOnRobo.webp",
           text: "Hands on Robotics Trainings",
         },
         {
@@ -406,7 +405,7 @@ const Footer = () => {
           text: "Hands on Embedded Designs Trainings",
         },
         {
-          image: "/optimized/icons/job.svg",
+          image: "/capabilities/RenewableLabs.webp",
           text: "Hand on EV & Solar Trainings",
         },
       ],
