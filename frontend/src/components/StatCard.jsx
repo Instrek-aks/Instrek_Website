@@ -11,7 +11,7 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
                  px-6 sm:px-8 md:px-12 lg:px-10 xl:px-12
                  py-16 sm:py-20 md:py-24 lg:py-16 xl:py-20 
                  shadow-lg sm:shadow-xl min-h-[75vh] sm:min-h-[80vh] md:min-h-[75vh] lg:min-h-auto
-                 border border-white/10 backdrop-blur-sm"
+                  backdrop-blur-sm"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
       {/* Background Decorative Circles */}
@@ -22,10 +22,10 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
       </div>
 
       {/* Corner Decorative Elements */}
-      <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#ea4820] opacity-30"></div>
+      {/* <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#ea4820] opacity-30"></div>
       <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-[#ea4820] opacity-30"></div>
       <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-white opacity-30"></div>
-      <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white opacity-30"></div>
+      <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white opacity-30"></div> */}
 
       {/* Upper Text Section */}
       {/* <div className="mb-6 text-center">
@@ -84,7 +84,7 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
 
       {/* Subtitle with improved styling */}
       <div className="relative">
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl text-white leading-relaxed text-center max-w-[90%] relative z-10">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl text-white leading-relaxed text-center max-w-[95%] lg:max-w-[85%] xl:max-w-[80%] relative z-10">
           {label}
         </p>
 

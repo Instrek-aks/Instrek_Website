@@ -40,7 +40,7 @@ export const LogoSection = ({
               <div
                 key={index}
                 className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 
-                           bg-white/20 backdrop-blur-sm rounded-lg border border-white/90 
+                           bg-white/10 backdrop-blur-sm rounded-lg border border-white/90 
                            hover:bg-white/15 hover:border-white/30 transition-all duration-300 
                            hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20
                            group"

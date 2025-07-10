@@ -7,9 +7,6 @@ const BlogCard = ({ blog, featured = false }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // First scroll to top
-    window.scrollTo(0, 0);
-    // Then navigate
     navigate(`/blog/${blog.id}`);
   };
 
@@ -53,7 +50,7 @@ const BlogCard = ({ blog, featured = false }) => {
 
           {/* Author Info and Date */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            {/* <div className="flex items-center space-x-3">
               <img
                 src={blog.authorImage || "/optimized/Vineet.webp"} // Fallback author image
                 alt={blog.author}
@@ -64,7 +61,7 @@ const BlogCard = ({ blog, featured = false }) => {
                 <p className="text-white font-medium">{blog.author}</p>
                 <p className="text-gray-400 text-sm">{blog.readTime}</p>
               </div>
-            </div>
+            </div> */}
 
             {/* Read More Link */}
             <span className="text-[#ea4820] font-medium group-hover:text-[#ea4820]/80 transition-colors duration-300">
@@ -106,7 +103,7 @@ const BlogCard = ({ blog, featured = false }) => {
           {blog.description}
         </p>
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 text-xs text-gray-400">
+          {/* <div className="flex items-center space-x-3 text-xs text-gray-400">
             <div className="flex items-center space-x-1">
               <User size={14} />
               <span>{blog.author}</span>
@@ -115,7 +112,7 @@ const BlogCard = ({ blog, featured = false }) => {
               <Clock size={14} />
               <span>{blog.readTime}</span>
             </div>
-          </div>
+          </div> */}
           <ArrowRight
             className="text-blue-400 group-hover:translate-x-1 transition-transform"
             size={16}

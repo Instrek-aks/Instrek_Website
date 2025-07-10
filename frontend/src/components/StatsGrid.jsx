@@ -8,48 +8,48 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   {
-    title: "Trusted",
-    value: "500K+",
-    label: "years in public and enterprise digital transformation",
+    value: "50+",
+    label: "Key clients empowered across sectors",
+    title: "Visionary Clients",
     upperText: {
-      line1: "Setting Standards in",
-      line2: "Trust & Reliability",
+      line1: "From Governments to Startups,",
+      line2: "Driving Scalable Impact",
     },
   },
   {
-    value: "99.9%",
-    label: "countries served with digital excellence",
-    title: "Global Reach",
+    value: "40+",
+    label: "In-house solutions delivered at scale",
+    title: "Engineer Solutions",
     upperText: {
-      line1: "Expanding Horizons with",
-      line2: "Global Impact",
+      line1: "AI, XR & Autonomous Systems",
+      line2: "Built for Real-World Use",
     },
   },
   {
-    value: "< 30s",
-    label: "solutions deployed across industries",
-    title: "Innovators",
+    value: "25+",
+    label: "in-house deep-tech innovations",
+    title: "Deep-Tech R&D",
     upperText: {
-      line1: "Pioneering the Future of",
-      line2: "Digital Solutions",
+      line1: "Building the Future with",
+      line2: "Intelligent Robotics & AI",
     },
   },
   {
-    value: "100+",
-    label: "happy public & private sector collaborations",
-    title: "Clients",
+    value: "1200+",
+    label: "next-gen learners trained",
+    title: "Tech Skilling",
     upperText: {
-      line1: "Building Success Through",
-      line2: "Partnerships",
+      line1: "Empowering Talent in",
+      line2: "AI, IoT, EVs, & More",
     },
   },
   {
-    value: "20K+",
-    label: "Clients have strong belief to us",
-    title: "Reliable",
+    value: "60+",
+    label: "cross-disciplinary experts onboard",
+    title: "Expert Team",
     upperText: {
-      line1: "Delivering Excellence with",
-      line2: "Proven Results",
+      line1: "Fusing AI, DevOps, Embedded",
+      line2: "Design & Strategy",
     },
   },
 ];
@@ -106,9 +106,12 @@ const StatsGrid = () => {
           {/* Fixed Position Header */}
           <div className="absolute top-8 left-0 right-0 z-20">
             <div className="text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white px-4 mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-8 text-white px-4 mb-8">
                 WHY CHOOSE <span className="text-[#ea4820]">US</span> ?
               </h2>
+              <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl  text-white ">
+                Pioneering the Future with Technology, Talent & Trust
+              </p>
             </div>
           </div>
 
@@ -121,8 +124,8 @@ const StatsGrid = () => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="card min-w-[96vw] sm:min-w-[92vw] md:min-w-[80vw] lg:min-w-[420px] xl:min-w-[480px] 
-                            w-[96vw] sm:w-[92vw] md:w-[80vw] lg:w-[420px] xl:w-[480px] flex-shrink-0"
+                  className="card min-w-[96vw] sm:min-w-[92vw] md:min-w-[80vw] lg:min-w-[500px] xl:min-w-[600px] 2xl:min-w-[700px] 
+                            w-[96vw] sm:w-[92vw] md:w-[80vw] lg:w-[520px] xl:w-[600px] 2xl:w-[700px] flex-shrink-0"
                 >
                   <StatCard
                     title={stat.title}
@@ -180,12 +183,12 @@ const StatsGrid = () => {
             </div>
 
             {/* Background Decorative Elements */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+            {/* <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
               <div className="absolute top-1/4 left-10 w-32 h-32 border border-[#ea4820] rounded-full animate-pulse"></div>
               <div className="absolute bottom-1/4 right-10 w-24 h-24 border border-white rounded-full animate-pulse delay-1000"></div>
               <div className="absolute top-3/4 left-1/4 w-16 h-16 bg-[#ea4820]/20 rounded-full animate-bounce delay-500"></div>
               <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-white/10 rounded-full animate-bounce delay-700"></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

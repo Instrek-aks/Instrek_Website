@@ -28,8 +28,6 @@ export default function DroneCard({
         },
       },
     });
-    // Scroll to top after navigation
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

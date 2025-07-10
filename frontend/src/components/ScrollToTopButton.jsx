@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUpCircle } from "lucide-react";
+import { useScrollPosition } from "./useScrollPosition";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { clearSavedScrollPosition } = useScrollPosition();
 
   // Show button only after scrolling down
   useEffect(() => {
@@ -15,6 +17,9 @@ const ScrollToTopButton = () => {
   }, []);
 
   const scrollToHero = () => {
+    // Clear saved scroll position when user explicitly wants to go to top
+    clearSavedScrollPosition();
+
     const hero = document.getElementById("home");
     if (hero) {
       hero.scrollIntoView({ behavior: "smooth" });

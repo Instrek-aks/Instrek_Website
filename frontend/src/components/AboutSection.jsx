@@ -3,7 +3,7 @@ import React from "react";
 const AboutSection = () => {
   return (
     <section
-      className=" bg-[#121212] relative overflow-hidden"
+      className="bg-[#121212] relative overflow-hidden pt-[60px]"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
       {/* Background Video */}
@@ -22,7 +22,7 @@ const AboutSection = () => {
       </video>
 
       {/* Content Wrapper */}
-      <div className="relative z-80 flex flex-col top-0 px-4 md:px-6 py-8 md:py-10 max-w-5xl mx-auto text-center text-white justify-start space-y-6 md:space-y-10">
+      <div className="relative z-10 flex flex-col top-0 px-4 md:px-6 py-8 md:py-10 max-w-5xl mx-auto text-center text-white justify-start space-y-6 md:space-y-10">
         {/* Title */}
         <h2 className="text-3xl md:text-5xl font-semibold mt-4">
           ABOUT <span className="text-[#ea4820]">US</span>

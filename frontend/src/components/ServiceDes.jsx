@@ -1,15 +1,11 @@
 import React, { useEffect } from "react";
 import Footer from "./Footer";
+import Header from "./Header";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const ServiceDes = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Scroll to top when component mounts - changed to instant behavior
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
 
   const serviceData = location.state?.service || {
     titleLine1: "Our",
@@ -66,38 +62,31 @@ const ServiceDes = () => {
     },
   ];
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
+  const handleLinkClick = (href) => {
+    // For hash links (internal page sections)
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
+
+    // For regular routes, navigate
+    navigate(href);
+  };
+
   return (
-    <div className="relative bg-black text-white min-h-screen">
-      {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                <span className="text-[#ea4820]">{serviceData.titleLine1}</span>{" "}
-                {serviceData.titleLine2}
-              </h1>
-            </div>
-            <button
-              onClick={() => {
-                navigate("/");
-                setTimeout(() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "instant",
-                  });
-                }, 0);
-              }}
-              className="bg-[#ea4820] hover:bg-[#d43d1b] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 transform"
-            >
-              Back to Home
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="relative bg-black text-white ">
+      {/* Header Component */}
+      <Header />
 
       <main
-        className="pt-20"
+        className="pt-20 "
         style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
       >
         {/* Hero Section */}
@@ -203,7 +192,7 @@ const ServiceDes = () => {
             </div>
 
             {/* Additional Services */}
-            <div>
+            {/* <div>
               <h2 className="text-3xl sm:text-4xl font-semibold mb-12 text-center text-[#ea4820]">
                 Additional Services
               </h2>
@@ -231,7 +220,7 @@ const ServiceDes = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 

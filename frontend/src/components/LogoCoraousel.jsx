@@ -12,33 +12,43 @@ import ICICILogo from "/Rimages/ICICI Bank_Client.svg";
 import TataLogo from "/Rimages/Tata Steel_Client.svg";
 import YesBankLogo from "/Rimages/Yes Bank_Client.svg";
 import UCBerkeleyLogo from "/Rimages/UC Berkeley_Client.svg";
+import Second from "/Rimages/second.svg";
+import Third from "/Rimages/third.svg";
+import NSDC from "/Rimages/NSDC.svg";
+import Suzuki from "/Rimages/suzuki.svg";
+import Sharda from "/Rimages/sharda.svg";
 
 const engagementLogos = [
   { name: "", image: ARTIALogo },
   { name: "", image: NDMALogo },
   { name: "", image: TRAILogo },
   { name: "", image: NITILogo },
-  { name: "", image: "/optimized/second.webp" },
-  { name: "", image: "/optimized/third.webp" },
+  { name: "", image: Second },
+  { name: "", image: Third },
+  { name: "", image: "/optimized/shardalogo.png" },
+
+  { name: "", image: "/optimized/miblogo.png" },
+  { name: "", image: "/optimized/broadp.png" },
+  { name: "", image: "/optimized/meitylogo.png" },
 ];
 
 const clientLogos = [
   { name: "", image: LTLogo },
-  { name: "", image: MazdaLogo },
-  { name: "", image: NagarroLogo },
+  { name: "", image: "/optimized/Syniti.png" },
+  { name: "", image: "/optimized/Traya.png" },
   { name: "", image: ICICILogo },
   { name: "", image: TataLogo },
-  { name: "", image: YesBankLogo },
-  { name: "", image: UCBerkeleyLogo },
+  { name: "", image: "/optimized/nsdc.png" },
+  { name: "", image: Suzuki },
 ];
 
 export const LogoCarousel = () => {
   return (
     <div
-      className="bg-black flex flex-col justify-center py-20 px-4"
+      className="bg-black flex flex-col justify-center py-20 px-2"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
-      <div className="max-w-6xl mx-auto w-full space-y-24">
+      <div className="max-w-7xl mx-auto w-full space-y-24">
         <LogoSection
           title="OUR KEY"
           subtitle="ENGAGEMENTS"

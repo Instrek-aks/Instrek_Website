@@ -64,7 +64,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative w-full font-heading flex items-center justify-start overflow-hidden text-start"
+      className="relative w-full font-heading flex items-center justify-start overflow-hidden text-start pt-[60px]"
       style={{
         height: "100vh",
         minHeight: "100vh",

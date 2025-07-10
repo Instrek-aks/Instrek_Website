@@ -4,6 +4,7 @@ import { blogs } from "./Blogs";
 import { ArrowRight, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const BlogIndex = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const BlogIndex = () => {
 
   return (
     <div className="min-h-screen bg-[#121212]">
-      {/* <Navigation /> */}
+      <Header />
 
       {/* Hero Section */}
       <section
@@ -24,13 +25,13 @@ const BlogIndex = () => {
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="relative max-w-7xl mx-auto z-10">
           {/* Home Button */}
-          <button
+          {/* <button
             onClick={() => navigate("/")}
             className="flex items-center gap-2 text-white bg-[#ea4820] hover:bg-[#ea4820]/90 px-4 py-2 rounded-lg mb-8 transition-all"
           >
             <Home size={20} />
             Back to Home
-          </button>
+          </button> */}
 
           <div className="text-left mb-16">
             {/* <div className="flex items-center space-x-2 text-[#ea4820] mb-6">
@@ -60,6 +61,13 @@ const BlogIndex = () => {
               <BlogCard key={blog.id} blog={blog} />
             ))}
           </div>
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center mt-6 text-white bg-[#ea4820] hover:bg-[#ea4820]/90 px-4 py-2 rounded-lg mb-8 transition-all"
+          >
+            <Home size={20} />
+            Back to Home
+          </button>
         </div>
       </section>
 
