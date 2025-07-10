@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react"; // Icons
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useScrollPosition } from "./useScrollPosition";
 
 const Header = () => {
@@ -8,6 +8,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { saveCurrentScrollPosition, clearSavedScrollPosition } =
     useScrollPosition();
 
@@ -90,10 +91,10 @@ const Header = () => {
   }, [location.pathname]);
 
   const menuItems = [
-    { label: "Home", link: "/", isHashLink: false },
-    { label: "About", link: "/#about", isHashLink: false },
-    { label: "Services", link: "/#services", isHashLink: false },
-    { label: "Team", link: "/#team", isHashLink: false },
+    { label: "Home", link: "/#home", isHashLink: true },
+    { label: "About", link: "/#about", isHashLink: true },
+    { label: "Services", link: "/#services", isHashLink: true },
+    { label: "Team", link: "/#team", isHashLink: true },
     { label: "Blog", link: "/blog", isHashLink: false },
     {
       label: "Contact",
@@ -107,15 +108,33 @@ const Header = () => {
     if (window.location.pathname === "/") {
       saveCurrentScrollPosition();
     }
-    window.location.href = "/"; // This will force a page reload and navigate to home
+    navigate("/"); // Use React Router navigation instead of window.location.href
   };
 
   const handleNavigation = (item) => {
     setActiveMenu(item.label);
     setMenuOpen(false);
 
-    // If it's a hash link (like Contact), let it work normally
+    // If it's a hash link (like About or Services), navigate to home first then scroll
     if (item.isHashLink) {
+      // If we're already on home page, just scroll to section
+      if (window.location.pathname === "/") {
+        const sectionId = item.link.substring(2); // Remove "#" from "#about" or "#services"
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // If we're on another page, navigate to home and then scroll to section
+        navigate("/");
+        setTimeout(() => {
+          const sectionId = item.link.substring(2);
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
       return;
     }
 
@@ -124,12 +143,12 @@ const Header = () => {
       saveCurrentScrollPosition();
     }
 
-    // For internal navigation, use React Router
-    if (item.link.startsWith("/#")) {
-      // Clear saved scroll position when navigating to specific sections
+    // For route navigation, use React Router
+    if (!item.link.startsWith("/#")) {
+      // Clear saved scroll position when navigating to specific pages
       clearSavedScrollPosition();
-      // Navigate to home page first, then scroll to section
-      window.location.href = item.link;
+      // Use React Router navigation
+      navigate(item.link);
     }
   };
 

@@ -719,7 +719,7 @@ const droneCardData = [
     titleLine2: "Things (IoT)",
     description:
       "Turning infrastructure into insight with real-time, automated control.",
-    image: "/optimized/skillR.webp",
+    image: "/optimized/iot2.webp",
     headline: "Connecting Intelligence Across Infrastructure",
     overview:
       "We build connected ecosystems for energy, utilities, and mobility using smart sensors, controllers, and IoT hubs.",
