@@ -786,7 +786,7 @@ const droneCardData = [
     capabilities: [
       {
         image: "/optimized/images/robo.webp",
-        text: "Remote device control systems",
+        text: "Hands-on Robotics Trainings",
       },
       {
         image: "/capabilities/EmbeddedRobo.webp",
@@ -798,7 +798,7 @@ const droneCardData = [
       },
       {
         image: "/capabilities/EmbeddedAuto.webp",
-        text: "Embedded Robotoid Platforms",
+        text: "Autonomous Mobile Robots",
       },
     ],
     impact:
