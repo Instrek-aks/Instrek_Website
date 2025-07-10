@@ -267,7 +267,7 @@ const Footer = () => {
       titleLine2: "Identity",
       description:
         "Digital identity, zero-trust systems, and secure transactions powered by blockchain.",
-      image: "/optimized/droneR.webp",
+      image: "/capabilities/BlockchainIdentity.webp",
       headline: "Decentralized Trust for the Digital Age",
       overview:
         "From digital ID systems to credential verification, our blockchain solutions deliver data integrity and user ownership.",
@@ -297,7 +297,7 @@ const Footer = () => {
       titleLine2: "Systems",
       description:
         "Smart automation across industries—from robotics to utilities.",
-      image: "/optimized/images/robo.webp",
+      image: "/capabilities/roboticsystem.avif",
       headline: "Automation Built from the Core",
       overview:
         "We develop and deploy embedded controllers, remote sensors, and automation modules across verticals.",
@@ -411,6 +411,36 @@ const Footer = () => {
       ],
       impact:
         "Creating a tech-savvy workforce that stays, grows, and innovates locally.",
+    },
+    arvr: {
+      titleLine1: "AR/VR &",
+      titleLine2: "Microapps",
+      description:
+        "Augmented campaigns, 3D demos & remote learning—no downloads required.",
+      image: "/capabilities/ARVRFIN.webp",
+      headline: "Interactivity Without Barriers",
+      overview:
+        "We deliver no-installation AR/VR microapps for onboarding, marketing, education, and engagement.",
+      capabilities: [
+        {
+          image: "/capabilities/Redifing.webp",
+          text: "Redefining Tourism via AR/VR",
+        },
+        {
+          image: "/capabilities/3DmodelVizu.webp",
+          text: "3D Model Visualisation on Mobile",
+        },
+        {
+          image: "/capabilities/ARVRFIN.webp",
+          text: "AR/VR for Fintech, Marketing/Branding",
+        },
+        {
+          image: "/capabilities/ImmersiveVr.webp",
+          text: "Immersive VR walkthroughs for training, exhibitions & simulations",
+        },
+      ],
+      impact:
+        "Boosting campaign ROI, engagement, and learning through immersive, frictionless interactions.",
     },
     smartCities: {
       titleLine1: "Smart",
