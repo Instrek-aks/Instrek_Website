@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Linkedin } from "lucide-react";
 
-const TeamCard = ({ name, role, image, bio, linkedinUrl }) => {
+const TeamCard = ({ name, role, image, bio, linkedinUrl, location }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleLinkedInClick = (e) => {
@@ -54,7 +54,9 @@ const TeamCard = ({ name, role, image, bio, linkedinUrl }) => {
           <p className="text-gray-300 text-xs sm:text-sm leading-relaxed line-clamp-4">
             {bio}
           </p>
-          <p className="text-[#ea4820] text-xs sm:text-sm mt-2">Delhi, IND</p>
+          {location && (
+            <p className="text-[#ea4820] text-xs sm:text-sm mt-2">{location}</p>
+          )}
         </div>
       </div>
 
