@@ -78,9 +78,18 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/anjalic97/",
     location: "Delhi, IND",
   },
-
   {
     id: 9,
+    name: "Aryavarta Singh",
+    role: "Drone Robotics Expert",
+    image: "/optimized/aryavarta.webp",
+    bio: "A true robotics enthusiast who loves building Rovers and AMRs, Aryavarta is the brain behind many of our coolest drone innovations at Instrek.",
+    linkedinUrl: "https://www.linkedin.com/in/aryavarta-singh-832689195/",
+    location: "Karnataka, IND",
+  },
+
+  {
+    id: 10,
     name: "Srilalitha M Srinivasan",
     role: "Drone Communications Expert",
     image: "/optimized/sri.webp",
@@ -89,15 +98,7 @@ const teamMembers = [
       "https://www.linkedin.com/in/srilalitha-m-srinivasan-23b531243/",
     location: "Karnataka, IND",
   },
-  {
-    id: 10,
-    name: "Aryavarta Singh",
-    role: "Drone Robotics Expert",
-    image: "/optimized/aryavarta.webp",
-    bio: "A true robotics enthusiast who loves building Rovers and AMRs, Aryavarta is the brain behind many of our coolest drone innovations at Instrek.",
-    linkedinUrl: "https://www.linkedin.com/in/aryavarta-singh-832689195/",
-    location: "Karnataka, IND",
-  },
+
   {
     id: 11,
     name: "Gagan Menderkar",
@@ -134,53 +135,60 @@ const WholeTeam = () => {
   return (
     <>
       <Header />
-      <div className="w-full px-8 py-10 bg-[#121212] pt-[80px]">
-        <div>
-          <div className="space-y-10">
-            <div>
-              <h2 className="text-6xl font-bold tracking-tight text-[#EA6220] text-center">
+      <div className="relative w-full overflow-hidden min-h-screen bg-[#121212] pt-[80px]">
+        {/* Background image layer */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('./optimized/ourteamR.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+
+        {/* Content layer */}
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-8 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            {/* Header Section */}
+            <div className="text-center mb-12 lg:mb-16">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-[#EA6220] ">
                 OUR TEAM
               </h2>
-              <h3 className="text-2xl text-center text-white mt-3 font-light">
+              <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white font-light max-w-4xl mx-auto leading-relaxed">
                 Driven by Purpose, Powered by Innovation
               </h3>
             </div>
 
-            <div className="text-gray-700 space-y-5">
-              <div className="overflow-hidden whitespace-nowrap w-full relative h-10">
-                <style>
-                  {`
-      @keyframes marquee {
-        0%   { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-      }
-    `}
-                </style>
-              </div>
+            {/* Team Grid - 3 cards per row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 items-start">
+              {teamMembers.map((member) => (
+                <div key={member.id} className="flex justify-center">
+                  <div className="w-full max-w-[295px]">
+                    <TeamCard
+                      name={member.name}
+                      role={member.role}
+                      image={member.image}
+                      bio={member.bio}
+                      linkedinUrl={member.linkedinUrl}
+                      location={member.location}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 items-start">
-            {teamMembers.map((member) => (
-              <div key={member.id} className="flex justify-center">
-                <TeamCard
-                  name={member.name}
-                  role={member.role}
-                  image={member.image}
-                  bio={member.bio}
-                  linkedinUrl={member.linkedinUrl}
-                  location={member.location}
-                />
-              </div>
-            ))}
+
+          {/* Back Button */}
+          <div className="flex justify-center mt-16">
+            <button
+              className="inline-flex items-center px-8 py-4 border-2 border-[#ea4820] text-lg font-semibold rounded-lg text-[#ea4820] hover:bg-[#ea4820] hover:text-white transition-all duration-300 transform hover:scale-105"
+              onClick={handleBackClick}
+            >
+              Back to Home
+            </button>
           </div>
-        </div>
-        <div className="flex justify-center mt-12">
-          <button
-            className="border border-[#EA6220] px-6 py-2 rounded text-white hover:bg-[#EA6220] transition-colors duration-300"
-            onClick={handleBackClick}
-          >
-            Back
-          </button>
         </div>
       </div>
       <Footer />

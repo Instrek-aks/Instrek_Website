@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
 //const TeamCard = lazy(() => import("./TeamCard"));
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,6 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/sanjanawadhwa94/",
     location: "Delhi, IND",
   },
-
   {
     id: 3,
     name: "Sharath M",
@@ -78,10 +77,49 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/anjalic97/",
     location: "Delhi, IND",
   },
+  {
+    id: 9,
+    name: "Aryavarta Singh",
+    role: "Drone Robotics Expert",
+    image: "/optimized/aryavarta.webp",
+    bio: "A true robotics enthusiast who loves building Rovers and AMRs, Aryavarta is the brain behind many of our coolest drone innovations at Instrek.",
+    linkedinUrl: "https://www.linkedin.com/in/aryavarta-singh-832689195/",
+    location: "Karnataka, IND",
+  },
+  {
+    id: 10,
+    name: "Srilalitha M Srinivasan",
+    role: "Drone Communications Expert",
+    image: "/optimized/sri.webp",
+    bio: "Sri is working on making our drones talk faster and safer. From secure links to anti-jamming tech, she's all about keeping our drones connected.",
+    linkedinUrl:
+      "https://www.linkedin.com/in/srilalitha-m-srinivasan-23b531243/",
+    location: "Karnataka, IND",
+  },
+
+  {
+    id: 11,
+    name: "Gagan Menderkar",
+    role: "Mechanical Design Expert",
+    image: "/optimized/gagan.webp",
+    bio: "Gagan makes sure our drones aren't just clever on paper his simulation and design skills mean they're strong, reliable, and ready to fly.",
+    linkedinUrl: "https://www.linkedin.com/in/gagan-menderkar-b3a243255/",
+    location: "Karnataka, IND",
+  },
+  {
+    id: 12,
+    name: "Vivek Kolekar",
+    role: "Mechanical Design & Manufacturing Expert",
+    image: "/optimized/vivek.webp", // (Consider updating with a unique image for Vivek)
+    bio: "Vivek turns ideas into real, buildable drone parts. He's all about making sure our designs work in the real world, not just on a screen.",
+    linkedinUrl: "https://www.linkedin.com/in/vivek-kolekar-19689721b",
+    location: "Karnataka, IND",
+  },
 ];
 
 const Team = () => {
   const navigate = useNavigate();
+  const [visibleMembers, setVisibleMembers] = useState(8);
 
   const handleBackClick = () => {
     navigate("/");
@@ -94,9 +132,35 @@ const Team = () => {
     }, 100);
   };
 
+  // Show more members on larger screens with balanced layouts
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1536) {
+        // 2xl screens - show 10 (5-5 pattern)
+        setVisibleMembers(10);
+      } else if (width >= 1280) {
+        // xl screens - show 8 (4-4 pattern)
+        setVisibleMembers(8);
+      } else if (width >= 1024) {
+        // lg screens - show 9 (3-3-3 pattern)
+        setVisibleMembers(9);
+      } else if (width >= 640) {
+        // sm screens - show 8 (2-2-2-2 pattern)
+        setVisibleMembers(8);
+      } else {
+        setVisibleMembers(8); // mobile - show all 8
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden min-h-screen">
         {/* Background image layer */}
         <div
           className="absolute inset-0 z-0"
@@ -110,34 +174,21 @@ const Team = () => {
         ></div>
 
         {/* Content layer */}
-        <div className="relative z-10 w-full px-8 py-10 bg-transparent">
-          <div>
-            <div className="space-y-10">
-              <div>
-                <h2 className="text-6xl font-bold tracking-tight text-[#EA6220] text-center">
-                  OUR TEAM
-                </h2>
-                <h3 className="text-2xl text-center text-white mt-3 font-light">
-                  Driven by Purpose, Powered by Innovation
-                </h3>
-              </div>
-
-              <div className="text-gray-700 space-y-5">
-                <div className="overflow-hidden whitespace-nowrap w-full relative h-10">
-                  <style>
-                    {`
-                  @keyframes marquee {
-                    0%   { transform: translateX(100%); }
-                    100% { transform: translateX(-100%); }
-                  }
-                `}
-                  </style>
-                </div>
-              </div>
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-16 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            {/* Header Section */}
+            <div className="text-center mb-12 lg:mb-16">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-[#EA6220] mb-4">
+                OUR TEAM
+              </h2>
+              <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white font-light max-w-4xl mx-auto leading-relaxed">
+                Driven by Purpose, Powered by Innovation
+              </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-12 items-start">
-              {teamMembers.map((member) => (
+            {/* Team Grid - Balanced layouts */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-10 items-start">
+              {teamMembers.slice(0, visibleMembers).map((member) => (
                 <div key={member.id} className="flex justify-center">
                   <TeamCard
                     name={member.name}
@@ -150,15 +201,28 @@ const Team = () => {
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => navigate("/team")}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#ea4820] hover:bg-[#ea4820]/90 transition-all duration-300"
-            >
-              Know More About Our Team
-            </button>
+            {/* Show More Button - Only if there are more members to show */}
+            {/* {visibleMembers < teamMembers.length && (
+              <div className="text-center mt-12">
+                <button
+                  onClick={() => setVisibleMembers(teamMembers.length)}
+                  className="inline-flex items-center px-8 py-4 border-2 border-[#ea4820] text-lg font-semibold rounded-lg text-[#ea4820] hover:bg-[#ea4820] hover:text-white transition-all duration-300 transform hover:scale-105"
+                >
+                  View All Team Members
+                </button>
+              </div>
+            )} */}
+
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <button
+                onClick={() => navigate("/team")}
+                className="inline-flex items-center px-8 py-4 bg-[#ea4820] hover:bg-[#ea4820]/90 text-white text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Know More About Our Team
+              </button>
+            </div>
           </div>
         </div>
       </div>
