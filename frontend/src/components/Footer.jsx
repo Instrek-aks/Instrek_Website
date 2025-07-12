@@ -8,6 +8,8 @@ import {
   Youtube,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG, getEmailTemplateParams } from "../config/emailjs";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -31,31 +33,21 @@ const Footer = () => {
     setSubmitStatus(null);
 
     try {
-      // Use Formspree or similar service for direct email sending
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append(
-        "message",
-        `Hello,\n\nI would like to get in touch with you.\n\nMy email: ${email}\n\nBest regards,\n${email}`
-      );
-      formData.append("subject", "Contact from Website");
+      // Get email template parameters
+      const templateParams = getEmailTemplateParams(email);
 
-      // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
-      const response = await fetch(
-        "https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        }
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      if (response.ok) {
+      if (response.status === 200) {
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your message has been sent successfully.",
+          message: "Thank you! We'll be in touch with you shortly at " + email,
         });
         setEmail("");
         setAgreed(false);
@@ -64,22 +56,11 @@ const Footer = () => {
       }
     } catch (error) {
       console.error("Email error:", error);
-      // Fallback to mailto link if service is not available
-      const subject = encodeURIComponent("Contact from Website");
-      const body = encodeURIComponent(
-        `Hello,\n\nI would like to get in touch with you.\n\nMy email: ${email}\n\nBest regards,\n${email}`
-      );
-      const mailtoLink = `mailto:connect@instrek.com?subject=${subject}&body=${body}`;
-
-      // Open email client as fallback
-      window.open(mailtoLink, "_blank");
-
       setSubmitStatus({
-        type: "success",
-        message: "Thankyou. We'll be in touch shortly!",
+        type: "error",
+        message:
+          "Sorry, there was an error. Please try again or contact us directly at connect@instrek.com",
       });
-      setEmail("");
-      setAgreed(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -127,14 +108,8 @@ const Footer = () => {
           image: "/capabilities/commercialdrone.webp",
           text: "Commercial Drones ",
         },
-        {
-          image: "/capabilities/Military.webp",
-          text: "Military Drones",
-        },
-        {
-          image: "/capabilities/RDdrone.webp",
-          text: "R&D Projects in Drones",
-        },
+        { image: "/capabilities/Military.webp", text: "Military Drones" },
+        { image: "/capabilities/RDdrone.webp", text: "R&D Projects in Drones" },
         {
           image: "/capabilities/connectedDrones.webp",
           text: "Connected Drones with Encrypted Communications",
@@ -220,10 +195,7 @@ const Footer = () => {
           image: "/optimized/images/aiImage.webp",
           text: " Agentic AI for Effortless Transactions",
         },
-        {
-          image: "/capabilities/AiForSkill.webp",
-          text: "AI for Skill India",
-        },
+        { image: "/capabilities/AiForSkill.webp", text: "AI for Skill India" },
         {
           image: "/capabilities/Aimentor.webp",
           text: "AI Mentor for Career Success",
@@ -254,10 +226,7 @@ const Footer = () => {
           image: "/capabilities/EmbeddedAuto.webp",
           text: "Embedded Automation Controllers",
         },
-        {
-          image: "/capabilities/Handson.webp",
-          text: "Hands on IoT Trainings",
-        },
+        { image: "/capabilities/Handson.webp", text: "Hands on IoT Trainings" },
       ],
       impact:
         "Enabling responsive infrastructure that reduces wastage and enhances city planning.",
@@ -460,10 +429,7 @@ const Footer = () => {
           image: "/capabilities/5gradio.webp",
           text: "5G Radio and High Capacity Low Latency Networks",
         },
-        {
-          image: "/capabilities/watermeter.webp",
-          text: "Smart water meters",
-        },
+        { image: "/capabilities/watermeter.webp", text: "Smart water meters" },
         {
           image: "/capabilities/singlefreq.webp",
           text: "Single Frequency network for Disaster Management",
@@ -538,10 +504,18 @@ const Footer = () => {
                 Reach out to us - let's talk possibilities.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+                data-netlify="true"
+                netlify
+                name="contact-form"
+              >
+                <input type="hidden" name="form-name" value="contact-form" />
                 <div className="relative">
                   <input
                     type="email"
+                    name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
@@ -580,6 +554,7 @@ const Footer = () => {
                   <input
                     type="checkbox"
                     id="agreed"
+                    name="agreed"
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
                     className="w-4 h-4 text-[#ea4820] bg-gray-700 border-gray-600 rounded focus:ring-[#ea4820] focus:ring-2"
