@@ -136,10 +136,7 @@ const Team = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width >= 1536) {
-        // 2xl screens - show 10 (5-5 pattern)
-        setVisibleMembers(10);
-      } else if (width >= 1280) {
+      if (width >= 1280) {
         // xl screens - show 8 (4-4 pattern)
         setVisibleMembers(8);
       } else if (width >= 1024) {
@@ -187,7 +184,7 @@ const Team = () => {
             </div>
 
             {/* Team Grid - Balanced layouts */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-10 items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10 items-start">
               {teamMembers.slice(0, visibleMembers).map((member) => (
                 <div key={member.id} className="flex justify-center">
                   <TeamCard
