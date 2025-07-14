@@ -19,7 +19,7 @@ const stats = [
   {
     value: "40+",
     label: "In-house solutions delivered at scale",
-    title: "Engineer Solutions",
+    title: "Engineered Solutions",
     upperText: {
       line1: "AI, XR & Autonomous Systems",
       line2: "Built for Real-World Use",

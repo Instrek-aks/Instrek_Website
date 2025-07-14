@@ -61,7 +61,7 @@ const ContactCard = ({
 
   return (
     <div
-      className="bg-white hover:bg-gray-50 rounded-2xl border border-gray-200 p-8 text-center hover:shadow-xl transition-all duration-300 hover:border-gray-300 cursor-pointer transform hover:scale-105"
+      className="bg-white hover:bg-gray-50 rounded-2xl border border-gray-200 p-8 text-center hover:shadow-xl transition-all duration-300 hover:border-gray-300 cursor-pointer transform hover:scale-105 flex flex-col h-full"
       onClick={handleCardClick}
     >
       <div className="w-20 h-20 bg-gray-100 hover:bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300">
@@ -72,17 +72,15 @@ const ContactCard = ({
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">{title}</h3>
 
-      <p className="text-gray-600 mb-8 leading-relaxed">{description}</p>
+      <p className="text-gray-600 mb-8 leading-relaxed flex-grow">
+        {description}
+      </p>
 
-      {isButton ? (
-        <div className="inline-block bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-md transform hover:scale-105">
+      <div className="mt-auto">
+        <div className="block bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-md transform hover:scale-105 text-center">
           {actionText}
         </div>
-      ) : (
-        <div className="inline-block bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg transform hover:scale-105">
-          {actionText}
-        </div>
-      )}
+      </div>
     </div>
   );
 };

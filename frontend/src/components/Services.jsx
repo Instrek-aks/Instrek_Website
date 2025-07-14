@@ -665,7 +665,7 @@ const droneCardData = [
       "We support India's EV transition with solutions in vehicle assembly, battery tech, and job-ready EV training programs.",
     capabilities: [
       {
-        image: "/capabilities/electric-scooters.webp",
+        image: "/capabilities/electric-scooters-copy.jpg",
         text: "E-scooters, 3W passenger & cargo EVs",
       },
       {
@@ -677,7 +677,7 @@ const droneCardData = [
         text: "EV maintenance & repair labs",
       },
       {
-        image: "/capabilities/EVmaintance.webp",
+        image: "/capabilities/EVmaintance-copy.jpg",
         text: "Integrated EV education ecosystem",
       },
     ],
@@ -785,7 +785,7 @@ const droneCardData = [
       "We develop and deploy embedded controllers, remote sensors, and automation modules across verticals.",
     capabilities: [
       {
-        image: "/optimized/images/robo.webp",
+        image: "/capabilities/RemoteControlSys.webp",
         text: "Hands-on Robotics Trainings",
       },
       {
