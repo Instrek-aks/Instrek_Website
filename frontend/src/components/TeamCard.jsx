@@ -33,7 +33,7 @@ const TeamCard = ({ name, role, image, bio, linkedinUrl, location }) => {
 
   return (
     <div
-      className="relative w-full bg-[#1A1A1A]/95 backdrop-blur-md rounded-xl overflow-hidden cursor-pointer transition-all duration-300 isolate flex flex-col shadow-lg hover:shadow-2xl border border-gray-800/30 h-[540px] sm:h-[610px]"
+      className="relative w-full bg-[#1A1A1A]/95 backdrop-blur-md rounded-xl overflow-hidden cursor-pointer transition-all duration-300 isolate flex flex-col shadow-lg hover:shadow-2xl border border-gray-800/30 team-card-custom-height"
       style={{
         fontFamily:
           "'Inter', 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, sans-serif",
@@ -59,8 +59,8 @@ const TeamCard = ({ name, role, image, bio, linkedinUrl, location }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
       </div>
 
-      {/* Content Section - Fixed height with overflow handling */}
-      <div className="p-5 flex flex-col h-[276px] sm:h-[346px]">
+      {/* Content Section - Remove fixed height and overflow */}
+      <div className="p-5 flex flex-col flex-1">
         {/* Header */}
         <div className="flex items-start justify-between mb-2 flex-shrink-0">
           <h2 className="text-2xl sm:text-xl font-bold text-white mr-3 flex-1">
@@ -81,13 +81,13 @@ const TeamCard = ({ name, role, image, bio, linkedinUrl, location }) => {
         </div>
 
         {/* Role */}
-        <p className="text-[#ea4820] text-lg leading-relaxed uppercase mb-3 flex-shrink-0">
+        <p className="text-[#ea4820] text-[15px] leading-relaxed uppercase mb-3 flex-shrink-0">
           {role}
         </p>
 
-        {/* Bio - Scrollable if content overflows */}
+        {/* Bio - No scrollable overflow */}
         <div className="flex-1 overflow-y-auto">
-          <p className="text-gray-300 text-xl sm:text-[16px] leading-relaxed">
+          <p className="text-gray-300 text-xl sm:text-[15px] leading-relaxed">
             {bio}
           </p>
         </div>

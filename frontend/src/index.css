@@ -452,3 +452,28 @@ html {
     font-size: 0.75rem !important;
   }
 }
+
+/* TeamCard fixed height only for very large screens (150% zoom or >1920px) */
+@media (min-width: 1920px) {
+  .team-card-custom-height {
+    height: 620px !important;
+  }
+}
+
+@media (max-width: 1919px) {
+  .team-card-custom-height {
+    height: 610px !important;
+  }
+}
+
+/* Team grid: 4 columns for up to 1919px (125%), 3 columns for 1920px+ (150%) */
+@media (min-width: 1280px) and (max-width: 1919px) {
+  .custom-team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 1920px) {
+  .custom-team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
