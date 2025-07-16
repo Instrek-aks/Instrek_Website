@@ -32,7 +32,7 @@ export default function DroneCard({
 
   return (
     <div
-      className=" border boder-white relative w-full h-[400px] md:h-[400px] overflow-hidden rounded-lg text-white cursor-pointer"
+      className="border boder-white relative w-full h-[400px] md:h-[400px] overflow-hidden rounded-lg text-white cursor-pointer service-card-zoom"
       onClick={handleClick}
     >
       {/* Background Image */}

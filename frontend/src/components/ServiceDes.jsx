@@ -165,10 +165,10 @@ const ServiceDes = () => {
                     key={index}
                     className="bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:scale-105 border border-white/10"
                   >
-                    <div className="flex flex-col sm:flex-row h-full">
+                    <div className="flex flex-col sm:flex-row">
                       {/* Image Container */}
-                      <div className="w-full sm:w-1/2">
-                        <div className="relative aspect-[4/3] sm:h-full">
+                      <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
+                        <div className="relative h-40 xs:h-48 sm:aspect-[4/3] sm:h-full max-h-56 sm:max-h-none overflow-hidden">
                           <img
                             src={capability.image}
                             alt={capability.text}
@@ -184,7 +184,7 @@ const ServiceDes = () => {
                       </div>
 
                       {/* Text Container */}
-                      <div className="w-full sm:w-1/2 p-6 flex items-center">
+                      <div className="w-full sm:w-1/2 p-6 flex items-center min-h-[60px]">
                         <p className="text-lg sm:text-xl text-gray-200 font-medium">
                           {capability.text}
                         </p>

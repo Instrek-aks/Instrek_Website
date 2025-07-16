@@ -4,8 +4,8 @@ const CapabilityCard = ({ title, image, description }) => {
       className="group cursor-pointer"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
-      <div className="flex items-center space-x-6 lg:space-x-8">
-        <div className="flex-shrink-0 w-64  overflow-hidden">
+      <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 lg:space-x-8">
+        <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -13,11 +13,11 @@ const CapabilityCard = ({ title, image, description }) => {
           />
         </div>
         <div className="flex-1">
-          <h3 className="text-lg md:text-2xl leading-relaxed group-hover:text-orange-400 transition-colors duration-300 mb-2">
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed group-hover:text-orange-400 transition-colors duration-300 mb-2">
             {title}
           </h3>
           {description && (
-            <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
               {description}
             </p>
           )}

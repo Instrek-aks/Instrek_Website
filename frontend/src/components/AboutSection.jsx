@@ -22,23 +22,23 @@ const AboutSection = () => {
       </video>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col top-0 px-4 md:px-6 py-8 md:py-10 max-w-5xl mx-auto text-center text-white justify-start space-y-6 md:space-y-10">
+      <div className="relative z-10 flex flex-col top-0 px-4 md:px-6 py-6 sm:py-8 md:py-10 max-w-5xl mx-auto text-center text-white justify-start space-y-4 sm:space-y-6 md:space-y-10">
         {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-semibold mt-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-4">
           ABOUT <span className="text-[#ea4820]">US</span>
         </h2>
 
         {/* Paragraphs */}
         <div className="max-w-5xl">
-          <p className="text-lg md:text-2xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
             Instrek is a purpose-led technology company committed to solving
             real world problems through smart innovation. From AI driven career
             guidance systems to scalable smart city platforms, we create
             solutions that matter.
           </p>
         </div>
-        <div className="max-w-2xl text-center mx-auto mt-10 md:mt-10">
-          <p className="text-lg md:text-2xl text-[#ea4820] leading-relaxed">
+        <div className="max-w-2xl text-center mx-auto mt-6 sm:mt-8 md:mt-10">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#ea4820] leading-relaxed">
             Our approach blends deep tech with human insight building tools that
             empower people, enable transformation, and drive lasting impact.
           </p>

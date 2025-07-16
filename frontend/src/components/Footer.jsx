@@ -481,10 +481,10 @@ const Footer = () => {
       className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800/80 text-white"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Newsletter Section */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div
               onClick={handleLogoClick}
               className="block bg-transparent w-fit px-4 py-2 rounded hover:opacity-80 transition-opacity cursor-pointer"
@@ -497,16 +497,16 @@ const Footer = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-[#ea4820] mb-4">
+              <h3 className="text-lg font-semibold text-[#ea4820] mb-3">
                 Get in Touch
               </h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-300 mb-3 text-sm">
                 Reach out to us - let's talk possibilities.
               </p>
 
               <form
                 onSubmit={handleSubmit}
-                className="space-y-4"
+                className="space-y-3"
                 data-netlify="true"
                 netlify
                 name="contact-form"
@@ -519,7 +519,7 @@ const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-6 py-4 rounded-full bg-white text-gray-900 placeholder-gray-500 pr-16 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full px-4 py-3 rounded-full bg-white text-gray-900 placeholder-gray-500 pr-16 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                     disabled={isSubmitting}
                   />
@@ -569,12 +569,12 @@ const Footer = () => {
           </div>
 
           {/* Links Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div>
-              <h4 className="text-xl font-semibold text-[#ea4820] mb-6">
+              <h4 className="text-lg font-semibold text-[#ea4820] mb-4">
                 Company
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     {link.href.startsWith("http") ? (
@@ -599,10 +599,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-xl font-semibold text-[#ea4820] mb-6">
+              <h4 className="text-lg font-semibold text-[#ea4820] mb-4">
                 Core Services
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {footerLinks.coreServices.map((link) => (
                   <li key={link.name}>
                     <button
@@ -618,10 +618,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-xl font-semibold text-[#ea4820] mb-6">
+              <h4 className="text-lg font-semibold text-[#ea4820] mb-4">
                 Tech Services
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {footerLinks.techServices.map((link) => (
                   <li key={link.name}>
                     <button

@@ -38,8 +38,11 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
       </div> */}
 
       {/* Top white line */}
-      <div className="w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-transparent via-white to-transparent mb-8 sm:mb-10 md:mb-12 lg:mb-10 relative">
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#ea4820] rounded-full"></div>
+      <div
+        className="w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white 
+                      mt-6 mb-4  sm:mb-10 md:mb-12 lg:mb-10 relative"
+      >
+        <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-ping delay-500"></div>
       </div>
 
       {/* Title */}
