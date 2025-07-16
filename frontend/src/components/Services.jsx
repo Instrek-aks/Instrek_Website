@@ -658,7 +658,7 @@ const droneCardData = [
   {
     titleLine1: "Electric Vehicles",
     titleLine2: "(EVs)",
-    description: "Building the EV ecosystem—2W, 3W, batteries & beyond.",
+    description: "Building the EV ecosystem-2W, 3W, batteries & beyond.",
     image: "/optimized/electric.webp",
     headline: "Empowering eMobility Ecosystems",
     overview:
@@ -688,7 +688,7 @@ const droneCardData = [
     titleLine1: "Artificial",
     titleLine2: "Intelligence",
     description:
-      "From traffic systems to medical diagnosis—AI that understands and acts.",
+      "From traffic systems to medical diagnosis-AI that understands and acts.",
     image: "/optimized/robo1.jpg",
     headline: "Making Machines Think Humanly",
     overview:
@@ -778,7 +778,7 @@ const droneCardData = [
     titleLine1: "Robotics",
     titleLine2: "Systems",
     description:
-      "Smart automation across industries—from robotics to utilities.",
+      "Smart automation across industries from robotics to utilities.",
     image: "/capabilities/roboticsystem.avif",
     headline: "Automation Built from the Core",
     overview:
@@ -868,7 +868,7 @@ const droneCardData = [
     titleLine1: "AR/VR &",
     titleLine2: "Microapps",
     description:
-      "Augmented campaigns, 3D demos & remote learning—no downloads required.",
+      "Augmented campaigns, 3D demos & remote learning-no downloads required.",
     image: "/capabilities/ARVRFIN.webp",
     headline: "Interactivity Without Barriers",
     overview:
