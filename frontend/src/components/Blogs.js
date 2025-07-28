@@ -203,7 +203,7 @@ At Instrek, we're not just building technology we're building bridges between in
 
 **Ready to explore next-gen solutions?** Let's discuss how we can transform your challenges into opportunities.`,
 
-    image: "/optimized/images/workforceTrain.webp",
+    image: "/optimized/nextgenblog.png",
     authorImage: "/optimized/images/Team.webp",
     author: "Emma Thompson",
     date: "March 20, 2024",
