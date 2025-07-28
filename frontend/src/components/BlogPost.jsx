@@ -32,9 +32,50 @@ const BlogPost = () => {
     const elements = [];
     let currentList = [];
     let inList = false;
+    let inTable = false;
+    let tableRows = [];
 
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();
+
+      // Handle horizontal rules
+      if (trimmedLine === "---") {
+        if (inList && currentList.length > 0) {
+          elements.push(
+            <ul
+              key={`list-${index}`}
+              className="list-disc list-inside space-y-2 mb-4 sm:mb-6 text-gray-300"
+            >
+              {currentList.map((item, i) => (
+                <li key={i} className="text-base sm:text-lg leading-relaxed">
+                  {parseInlineMarkdown(item)}
+                </li>
+              ))}
+            </ul>
+          );
+          currentList = [];
+          inList = false;
+        }
+        elements.push(
+          <hr key={index} className="border-gray-700 my-6 sm:my-8" />
+        );
+        return;
+      }
+
+      // Handle tables
+      if (trimmedLine.includes("|") && trimmedLine.split("|").length > 2) {
+        if (!inTable) {
+          inTable = true;
+          tableRows = [];
+        }
+        tableRows.push(trimmedLine);
+        return;
+      } else if (inTable) {
+        // End of table
+        elements.push(renderTable(tableRows, index));
+        inTable = false;
+        tableRows = [];
+      }
 
       // Handle headers
       if (trimmedLine.startsWith("# ")) {
@@ -46,7 +87,7 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -59,7 +100,7 @@ const BlogPost = () => {
             key={index}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 mt-8 sm:mt-12 first:mt-0 leading-tight"
           >
-            {trimmedLine.substring(2)}
+            {parseInlineMarkdown(trimmedLine.substring(2))}
           </h1>
         );
       } else if (trimmedLine.startsWith("## ")) {
@@ -71,7 +112,7 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -84,7 +125,7 @@ const BlogPost = () => {
             key={index}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 mt-6 sm:mt-10 leading-tight"
           >
-            {trimmedLine.substring(3)}
+            {parseInlineMarkdown(trimmedLine.substring(3))}
           </h2>
         );
       } else if (trimmedLine.startsWith("### ")) {
@@ -96,7 +137,7 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -109,17 +150,10 @@ const BlogPost = () => {
             key={index}
             className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-3 sm:mb-4 mt-6 sm:mt-8 leading-tight"
           >
-            {trimmedLine.substring(4)}
+            {parseInlineMarkdown(trimmedLine.substring(4))}
           </h3>
         );
-      } else if (trimmedLine.startsWith("• ")) {
-        // Handle bullet points
-        if (!inList) {
-          inList = true;
-        }
-        currentList.push(trimmedLine.substring(2));
-      } else if (trimmedLine.startsWith("**") && trimmedLine.endsWith("**")) {
-        // Handle bold text
+      } else if (trimmedLine.startsWith("#### ")) {
         if (inList && currentList.length > 0) {
           elements.push(
             <ul
@@ -128,7 +162,39 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
+                </li>
+              ))}
+            </ul>
+          );
+          currentList = [];
+          inList = false;
+        }
+        elements.push(
+          <h4
+            key={index}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white mb-3 sm:mb-4 mt-4 sm:mt-6 leading-tight"
+          >
+            {parseInlineMarkdown(trimmedLine.substring(5))}
+          </h4>
+        );
+      } else if (trimmedLine.startsWith("• ") || trimmedLine.startsWith("- ")) {
+        // Handle bullet points
+        if (!inList) {
+          inList = true;
+        }
+        currentList.push(trimmedLine.substring(2));
+      } else if (trimmedLine.startsWith("**") && trimmedLine.endsWith("**")) {
+        // Handle bold text as paragraph
+        if (inList && currentList.length > 0) {
+          elements.push(
+            <ul
+              key={`list-${index}`}
+              className="list-disc list-inside space-y-2 mb-4 sm:mb-6 text-gray-300"
+            >
+              {currentList.map((item, i) => (
+                <li key={i} className="text-base sm:text-lg leading-relaxed">
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -141,7 +207,9 @@ const BlogPost = () => {
             key={index}
             className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4"
           >
-            {trimmedLine.substring(2, trimmedLine.length - 2)}
+            {parseInlineMarkdown(
+              trimmedLine.substring(2, trimmedLine.length - 2)
+            )}
           </p>
         );
       } else if (trimmedLine === "") {
@@ -154,7 +222,7 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -173,7 +241,7 @@ const BlogPost = () => {
             >
               {currentList.map((item, i) => (
                 <li key={i} className="text-base sm:text-lg leading-relaxed">
-                  {item}
+                  {parseInlineMarkdown(item)}
                 </li>
               ))}
             </ul>
@@ -186,7 +254,7 @@ const BlogPost = () => {
             key={index}
             className="text-base sm:text-lg leading-relaxed text-gray-300 mb-4 sm:mb-6"
           >
-            {trimmedLine}
+            {parseInlineMarkdown(trimmedLine)}
           </p>
         );
       }
@@ -201,7 +269,7 @@ const BlogPost = () => {
         >
           {currentList.map((item, i) => (
             <li key={i} className="text-base sm:text-lg leading-relaxed">
-              {item}
+              {parseInlineMarkdown(item)}
             </li>
           ))}
         </ul>
@@ -209,6 +277,89 @@ const BlogPost = () => {
     }
 
     return elements;
+  };
+
+  // Function to parse inline markdown (bold, italic, etc.)
+  const parseInlineMarkdown = (text) => {
+    if (!text) return text;
+
+    // Handle bold text
+    const boldRegex = /\*\*(.*?)\*\*/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = boldRegex.exec(text)) !== null) {
+      // Add text before the bold part
+      if (match.index > lastIndex) {
+        parts.push(text.slice(lastIndex, match.index));
+      }
+      // Add the bold part
+      parts.push(
+        <strong key={match.index} className="font-bold text-white">
+          {match[1]}
+        </strong>
+      );
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
+  // Function to render tables
+  const renderTable = (tableRows, key) => {
+    if (tableRows.length < 2) return null;
+
+    const headers = tableRows[0]
+      .split("|")
+      .map((cell) => cell.trim())
+      .filter((cell) => cell);
+    const separatorRow = tableRows[1];
+    const dataRows = tableRows.slice(2);
+
+    return (
+      <div key={key} className="overflow-x-auto my-6 sm:my-8">
+        <table className="min-w-full border-collapse border border-gray-700">
+          <thead>
+            <tr>
+              {headers.map((header, index) => (
+                <th
+                  key={index}
+                  className="border border-gray-700 px-4 py-3 text-left text-white font-semibold bg-gray-800"
+                >
+                  {parseInlineMarkdown(header)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {dataRows.map((row, rowIndex) => {
+              const cells = row
+                .split("|")
+                .map((cell) => cell.trim())
+                .filter((cell) => cell);
+              return (
+                <tr key={rowIndex} className="border-b border-gray-700">
+                  {cells.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className="border border-gray-700 px-4 py-3 text-gray-300"
+                    >
+                      {parseInlineMarkdown(cell)}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
   };
 
   if (!blog) {
