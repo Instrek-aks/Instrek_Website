@@ -183,9 +183,9 @@ export default function PrivacyPolicy() {
             <br />
             {/* Phone: +91-
             <br /> */}
-            Address: C-18, Second floor, Pamposh Enclave,
+            Address: Greater Kailash,
             <br />
-            New Delhi - 110048
+            South Delhi, 110048
           </address>
         </Section>
       </div>
