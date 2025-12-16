@@ -10,10 +10,10 @@ const Solutions = () => {
       <div className="relative py-20 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#EA6220]/10 via-transparent to-[#EA6220]/5" />
-        
+
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#EA6220]/50 to-transparent" />
-        
+
         <div className="relative container mx-auto px-4">
           <Link
             to="/"
@@ -32,8 +32,9 @@ const Solutions = () => {
             </div>
 
             <p className="text-lg text-white/70 max-w-2xl leading-relaxed">
-              Discover our comprehensive range of solutions designed to transform
-              your business and drive sustainable growth in the digital age.
+              Discover our comprehensive range of solutions designed to
+              transform your business and drive sustainable growth in the
+              digital age.
             </p>
 
             {/* Decorative line */}
@@ -56,7 +57,8 @@ const Solutions = () => {
             Don't see what you're looking for?
           </h2>
           <p className="text-white/70 mb-8 max-w-2xl mx-auto text-lg">
-            Our expert team can customize solutions tailored to your specific business needs. Let's discuss your requirements today.
+            Our expert team can customize solutions tailored to your specific
+            business needs. Let's discuss your requirements today.
           </p>
           <button className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105">
             Get in Touch

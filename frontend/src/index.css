@@ -27,9 +27,9 @@ body {
 
 /* Design System Colors */
 :root {
-  --primary: #EA6220;
+  --primary: #ea6220;
   --primary-light: #ff724a;
-  --secondary: #2A2342;
+  --secondary: #2a2342;
   --accent: #ff724a;
   --dark: #0f0f0f;
   --dark-secondary: #1a1a2e;

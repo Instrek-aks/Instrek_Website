@@ -21,7 +21,7 @@ const SolutionDetail = () => {
         />
         {/* Gradient overlay with primary color accent */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#1a1a2e]/80 to-[#EA6220]/10" />
-        
+
         {/* Decorative gradient line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#EA6220] via-[#ff724a] to-transparent" />
 
@@ -61,9 +61,7 @@ const SolutionDetail = () => {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#EA6220] to-[#ff724a] flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
-                Key Features
-              </h3>
+              <h3 className="text-2xl font-bold text-white">Key Features</h3>
             </div>
             <ul className="space-y-4">
               {solution.features.map((feature, index) => (
