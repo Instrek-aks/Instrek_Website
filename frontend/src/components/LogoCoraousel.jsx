@@ -30,7 +30,7 @@ const engagementLogos = [
   { name: "", image: "/optimized/miblogo.png" },
   { name: "", image: "/optimized/broadp.png" },
   { name: "", image: "/optimized/meitylogo.png" },
-  { name: "", image: "/optimized/mcc.png" },
+  { name: "", image: "/optimized/iit.png" },
 ];
 
 const clientLogos = [
@@ -41,7 +41,7 @@ const clientLogos = [
   { name: "", image: TataLogo },
   { name: "", image: "/optimized/nsdc.png" },
   { name: "", image: Suzuki },
-  { name: "", image: "/optimized/iit.png" },
+  { name: "", image: "/optimized/mcc.png" },
 ];
 
 export const LogoCarousel = () => {
