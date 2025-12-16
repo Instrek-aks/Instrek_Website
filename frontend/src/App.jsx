@@ -36,6 +36,8 @@ import BlogIndex from "./components/BlogIndex";
 import BlogPost from "./components/BlogPost";
 import StatsGrid from "./components/StatsGrid.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
+import Solutions from "./components/Solutions.jsx";
+import SolutionDetail from "./components/SolutionDetail.jsx";
 
 // Loading fallback component
 const LoadingSpinner = () => (
@@ -57,6 +59,8 @@ const App = () => {
             <Route path="/services-page" element={<ServiceDes />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/contact-us" element={<ContactSection />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/:id" element={<SolutionDetail />} />
             <Route
               path="/"
               element={

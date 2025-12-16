@@ -11,6 +11,7 @@
 
   body {
     font-family: "PP Neue Montreal", sans-serif;
+    @apply bg-background text-foreground;
   }
 
   * {
@@ -20,6 +21,23 @@
 
 body {
   overflow-x: clip;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+/* Design System Colors */
+:root {
+  --primary: #EA6220;
+  --primary-light: #ff724a;
+  --secondary: #2A2342;
+  --accent: #ff724a;
+  --dark: #0f0f0f;
+  --dark-secondary: #1a1a2e;
+  --dark-tertiary: #121212;
+  --background: #0f0f0f;
+  --card-bg: #1a1a2e;
+  --foreground: #ffffff;
+  --muted: #9ca3af;
 }
 .black-gradient {
   background: #000000; /* fallback for old browsers */
