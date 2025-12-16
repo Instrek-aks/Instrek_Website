@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const ContactSection = () => {
   return (
     <div
-      className="min-h-screen bg-background"
+      className="min-h-screen "
       style={{ backgroundColor: "hsl(44, 20%, 94%)" }}
     >
       <Header />

@@ -11,7 +11,7 @@
 
   body {
     font-family: "PP Neue Montreal", sans-serif;
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 
   * {
