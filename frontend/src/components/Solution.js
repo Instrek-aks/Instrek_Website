@@ -1,152 +1,157 @@
 export const solutions = [
   {
-    id: "digital-transformation",
-    title: "Digital Transformation",
-    headline: "Transform your business for the digital age",
+    id: "podarmor",
+    title: "PodArmor",
+    headline: "Secure Software Supply Chain Platform",
     description:
-      "Our digital transformation solutions help organizations reimagine their business processes, customer experiences, and operational models. We leverage cutting-edge technologies to drive innovation and create sustainable competitive advantages.",
+      "PodArmor is an enterprise-grade platform that enables organizations to build, maintain, and deploy secure container images by default. It eliminates vulnerabilities at the source, delivers near-zero CVEs, automated compliance, and faster software delivery without continuous patching overhead.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&auto=format&fit=crop",
     features: [
-      "Business Process Automation",
-      "Cloud Migration Services",
-      "Data Analytics & Insights",
-      "Customer Experience Optimization",
+      "Hardened & Continuously Patched Container Images",
+      "Automated SBOM Generation",
+      "Compliance with PCI-DSS, HIPAA, NIST 800-53",
+      "CI/CD Pipeline Integration",
     ],
     benefits: [
-      "Increased operational efficiency",
-      "Enhanced customer satisfaction",
-      "Reduced operational costs",
-      "Faster time to market",
-    ],
-    detailImages: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "cloud-solutions",
-    title: "Cloud Solutions",
-    headline: "Scale your infrastructure with confidence",
-    description:
-      "Our cloud solutions provide scalable, secure, and cost-effective infrastructure that grows with your business. From migration to optimization, we ensure your cloud journey is smooth and successful.",
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
-    features: [
-      "Multi-cloud Architecture",
-      "Cloud Security & Compliance",
-      "DevOps & CI/CD Pipelines",
-      "Serverless Computing",
-    ],
-    benefits: [
-      "Unlimited scalability",
-      "Pay-as-you-go pricing",
-      "Enhanced security posture",
-      "Global availability",
-    ],
-    detailImages: [
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "ai-machine-learning",
-    title: "AI & Machine Learning",
-    headline: "Harness the power of artificial intelligence",
-    description:
-      "Unlock new possibilities with our AI and machine learning solutions. We help businesses leverage intelligent automation, predictive analytics, and natural language processing to drive innovation.",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop",
-    features: [
-      "Predictive Analytics",
-      "Natural Language Processing",
-      "Computer Vision Solutions",
-      "AI-Powered Automation",
-    ],
-    benefits: [
-      "Data-driven decision making",
-      "Automated workflows",
-      "Personalized experiences",
-      "Competitive advantage",
-    ],
-    detailImages: [
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=800&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    headline: "Protect your digital assets with confidence",
-    description:
-      "Our comprehensive cybersecurity solutions safeguard your organization against evolving threats. We provide end-to-end security services from assessment to implementation and monitoring.",
-    image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop",
-    features: [
-      "Threat Detection & Response",
-      "Identity & Access Management",
-      "Security Audits & Compliance",
-      "Incident Response Planning",
-    ],
-    benefits: [
-      "24/7 threat monitoring",
-      "Regulatory compliance",
+      "Near-zero CVEs",
       "Reduced security risks",
-      "Peace of mind",
+      "80% reduction in vulnerability triaging effort",
+      "Faster and secure deployments",
     ],
     detailImages: [
       "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "data-analytics",
-    title: "Data Analytics",
-    headline: "Turn data into actionable insights",
-    description:
-      "Our data analytics solutions help you make sense of your data. We provide advanced analytics, visualization, and reporting tools that transform raw data into strategic business insights.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
-    features: [
-      "Business Intelligence Dashboards",
-      "Real-time Analytics",
-      "Data Warehousing",
-      "Custom Reporting Solutions",
-    ],
-    benefits: [
-      "Informed decision making",
-      "Identify trends & patterns",
-      "Optimize operations",
-      "Measure ROI effectively",
-    ],
-    detailImages: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "enterprise-software",
-    title: "Enterprise Software",
-    headline: "Custom solutions for complex challenges",
-    description:
-      "We design and develop custom enterprise software solutions tailored to your unique business requirements. From ERP systems to specialized applications, we deliver solutions that drive efficiency.",
-    image:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&auto=format&fit=crop",
+    ],
+  },
+
+  {
+    id: "touraj",
+    title: "Touraj",
+    headline: "Immersive AI, AR & VR Tourism Platform",
+    description:
+      "Touraj is a next-generation tourism platform powered by AI, AR, and VR, transforming travel into a personalized and immersive experience. It reimagines the entire travel journey from planning to on-ground exploration with real-time intelligence and cultural storytelling.",
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop",
     features: [
-      "Custom Application Development",
-      "ERP Implementation",
-      "System Integration",
-      "Legacy Modernization",
+      "AI-Personalized Travel Itineraries",
+      "AR-Based Cultural Experiences",
+      "360° VR Destination Previews",
+      "Integrated Travel & Booking Services",
     ],
     benefits: [
-      "Tailored to your needs",
-      "Seamless integration",
-      "Improved productivity",
-      "Long-term support",
+      "Personalized travel journeys",
+      "Enhanced cultural exploration",
+      "Improved traveler safety",
+      "Increased tourism engagement",
     ],
     detailImages: [
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&auto=format&fit=crop",
+    ],
+  },
+
+  {
+    id: "blockchain-zti",
+    title: "Blockchain & Zero Trust Identity",
+    headline: "Tamper-Proof Digital Identity & Record Management",
+    description:
+      "A secure Blockchain and Zero Trust Identity platform for managing sensitive records and digital identities across governance, legal, education, and enterprise systems using decentralized identity, verifiable credentials, and smart contracts.",
+    image:
+      "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&auto=format&fit=crop",
+    features: [
+      "Decentralized Identity & Verifiable Credentials",
+      "Consent-Based Data Sharing",
+      "Immutable Blockchain Audit Trails",
+      "Smart Contract Workflow Automation",
+    ],
+    benefits: [
+      "Fraud prevention",
+      "End-to-end data integrity",
+      "Automated regulatory compliance",
+      "Interoperable & scalable architecture",
+    ],
+    detailImages: [
+      "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1605902711622-cfb43c44367f?w=800&auto=format&fit=crop",
+    ],
+  },
+
+  {
+    id: "medicare",
+    title: "Medicare",
+    headline: "Unified Telemedicine & Healthcare Platform",
+    description:
+      "Medicare is a comprehensive telemedicine solution connecting patients, doctors, hospitals, and medicine distribution networks through a single secure platform, enabling scalable and compliant digital healthcare delivery.",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop",
+    features: [
+      "Video & Audio Consultations",
+      "Digital Prescriptions & Medical Records",
+      "Medicine Distribution & Traceability",
+      "Administrative & Analytics Dashboards",
+    ],
+    benefits: [
+      "Accessible healthcare delivery",
+      "Improved patient outcomes",
+      "End-to-end medicine traceability",
+      "Regulatory-compliant architecture",
+    ],
+    detailImages: [
+      "https://images.unsplash.com/photo-1580281657527-47e21e57a8b8?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581091215367-59ab6b0c6c0c?w=800&auto=format&fit=crop",
+    ],
+  },
+
+  {
+    id: "ekvaani",
+    title: "EkVaani",
+    headline: "Unified AI Voice Automation Platform",
+    description:
+      "EkVaani is an enterprise-grade AI voice automation platform enabling intelligent, multilingual, and scalable communication for enterprises, governments, and public systems across millions of users.",
+    image:
+      "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&auto=format&fit=crop",
+    features: [
+      "Multilingual AI Voice Agents",
+      "Mass-Scale Outbound & Inbound Calling",
+      "Two-Way Conversational Intelligence",
+      "CRM & API Integrations",
+    ],
+    benefits: [
+      "Up to 80% cost reduction",
+      "Always-on communication",
+      "Actionable conversational data",
+      "Inclusive and scalable outreach",
+    ],
+    detailImages: [
+      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop",
+    ],
+  },
+
+  {
+    id: "ai-cctv",
+    title: "AI CCTV & Video Analytics",
+    headline: "Intelligent Vision for Border & Perimeter Security",
+    description:
+      "An AI-powered CCTV and video analytics platform designed for defence and high-security environments, delivering real-time surveillance, threat detection, and actionable intelligence across diverse terrains.",
+    image:
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&auto=format&fit=crop",
+    features: [
+      "Intrusion & Anomaly Detection",
+      "ANPR & Vehicle Classification",
+      "Thermal & Night Surveillance",
+      "Drone & Perimeter Security",
+    ],
+    benefits: [
+      "Enhanced situational awareness",
+      "Faster threat response",
+      "Optimized manpower utilization",
+      "Reliable investigation support",
+    ],
+    detailImages: [
+      "https://images.unsplash.com/photo-1581091012184-7b8c7f4fdd64?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=800&auto=format&fit=crop",
     ],
   },
 ];
