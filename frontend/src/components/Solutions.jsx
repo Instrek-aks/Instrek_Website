@@ -1,10 +1,11 @@
 import { solutions } from "./Solution";
 import SolutionCard from "../components/SolutionCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import Header from "./Header";
 
 const Solutions = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1a1a2e]">
       {/* Header Section */}
