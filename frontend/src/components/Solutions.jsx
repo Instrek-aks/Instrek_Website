@@ -62,7 +62,10 @@ const Solutions = () => {
             Our expert team can customize solutions tailored to your specific
             business needs. Let's discuss your requirements today.
           </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={() => navigate("/contact-us")}
+            className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105"
+          >
             Get in Touch
           </button>
         </div>
