@@ -5,7 +5,7 @@ export const solutions = [
     headline: "Secure Software Supply Chain Platform",
     description:
       "PodArmor is an enterprise-grade platform that enables organizations to build, maintain, and deploy secure container images by default. It eliminates vulnerabilities at the source, delivers near-zero CVEs, automated compliance, and faster software delivery without continuous patching overhead.",
-    image: "/optimized/pic1.jpg",
+    image: "/optimized/pic8.jpg",
     features: [
       "Hardened & Continuously Patched Container Images",
       "Automated SBOM Generation",
@@ -18,7 +18,7 @@ export const solutions = [
       "80% reduction in vulnerability triaging effort",
       "Faster and secure deployments",
     ],
-    detailImages: ["/optimized/pic3.jpg", "/optimized/pic2.jpg"],
+    detailImages: ["/optimized/pic7.jpg", "/optimized/pic9.jpg"],
   },
 
   {
@@ -27,7 +27,7 @@ export const solutions = [
     headline: "Immersive AI, AR & VR Tourism Platform",
     description:
       "Touraj is a next-generation tourism platform powered by AI, AR, and VR, transforming travel into a personalized and immersive experience. It reimagines the entire travel journey from planning to on-ground exploration with real-time intelligence and cultural storytelling.",
-    image: "/optimized/pic8.jpg",
+    image: "/optimized/pic1.jpg",
     features: [
       "AI-Personalized Travel Itineraries",
       "AR-Based Cultural Experiences",
@@ -40,7 +40,7 @@ export const solutions = [
       "Improved traveler safety",
       "Increased tourism engagement",
     ],
-    detailImages: ["/optimized/pic7.jpg", "/optimized/pic9.jpg"],
+    detailImages: ["/optimized/pic3.jpg", "/optimized/pic2.jpg"],
   },
 
   {
