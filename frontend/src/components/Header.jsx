@@ -96,6 +96,7 @@ const Header = () => {
     { label: "Services", link: "/#services", isHashLink: true },
     { label: "Team", link: "/#team", isHashLink: true },
     { label: "Blog", link: "/blog", isHashLink: false },
+    { label: "Solutions", link: "/solutions", isHashLink: false },
     {
       label: "Contact",
       link: "/contact-us",

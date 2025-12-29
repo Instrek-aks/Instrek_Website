@@ -2,11 +2,13 @@ import { solutions } from "./Solution";
 import SolutionCard from "../components/SolutionCard";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles } from "lucide-react";
+import Header from "./Header";
 
 const Solutions = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1a1a2e]">
       {/* Header Section */}
+      <Header />
       <div className="relative py-20 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#EA6220]/10 via-transparent to-[#EA6220]/5" />

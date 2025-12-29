@@ -1,7 +1,8 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { solutions } from "./Solution";
 import { ArrowLeft, CheckCircle, Sparkles, Zap } from "lucide-react";
 import { Button } from "../components/Button";
+import Header from "./Header";
 
 const SolutionDetail = () => {
   const { id } = useParams();
@@ -11,8 +12,11 @@ const SolutionDetail = () => {
     return <Navigate to="/solutions" replace />;
   }
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1a1a2e]">
+      <Header />
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div
@@ -132,10 +136,16 @@ const SolutionDetail = () => {
             solution can help drive innovation and growth for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105">
+            <button
+              onClick={() => navigate("/contact-us")}
+              className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105"
+            >
               Contact Us
             </button>
-            <button className="px-8 py-3 bg-transparent border-2 border-[#EA6220] text-[#EA6220] font-semibold rounded-xl hover:bg-[#EA6220]/10 transition-all duration-300">
+            <button
+              onClick={() => navigate("/contact-us")}
+              className="px-8 py-3 bg-transparent border-2 border-[#EA6220] text-[#EA6220] font-semibold rounded-xl hover:bg-[#EA6220]/10 transition-all duration-300"
+            >
               Schedule Demo
             </button>
           </div>
