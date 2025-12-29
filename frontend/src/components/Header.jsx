@@ -105,7 +105,7 @@ const Header = () => {
   ];
 
   const handleLogoClick = () => {
-    // Save current scroll position if we're on home page
+    // Save current scroll position if we're on home page to be held
     if (window.location.pathname === "/") {
       saveCurrentScrollPosition();
     }
