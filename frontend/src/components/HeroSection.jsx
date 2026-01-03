@@ -2,6 +2,17 @@ import React, { useState, useEffect } from "react";
 
 const slides = [
   {
+    desktopImage: "/optimized/pic1_main.jpg",
+    mobileImage: "/optimized/pic1_main.jpg",
+    title1: "Data, Technology,",
+    title2: "Strategy Align",
+    description:
+      "Enabling institutions to grow through data-driven insights, smart systems, and technology-led transformation.",
+    temperature: "27°C",
+    weather: "Clear",
+  },
+
+  {
     desktopImage: "./optimized/heroImageRL.webp",
     mobileImage: "./optimized/heroImageRLM2.jpg",
     title1: "Empowering Futures,",
@@ -21,6 +32,18 @@ const slides = [
     temperature: "32°C",
     weather: "Sunny",
   },
+
+  {
+    desktopImage: "/optimized/pic4_main.jpg",
+    mobileImage: "/optimized/pic4_mainM.jpg",
+    title1: "Transforming Vision,",
+    title2: "Intelligent Systems",
+    description:
+      "Delivering next-generation digital solutions that drive innovation, efficiency, and lasting impact.",
+    temperature: "30°C",
+    weather: "Partly Cloudy",
+  },
+  // Existing slide shifted to 5th
   {
     desktopImage: "/optimized/skillR.webp",
     mobileImage: "/optimized/skillR.webp",
