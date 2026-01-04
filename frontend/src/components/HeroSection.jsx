@@ -4,11 +4,11 @@ const slides = [
   {
     desktopImage: "/optimized/pic1_main.jpg",
     mobileImage: "/optimized/pic1_main.jpg",
-    title1: "Data, Technology,",
-    title2: "Strategy Align",
+    title1: "Where Data, Technology &",
+    title2: "Strategy Converge",
     description:
-      "Enabling institutions to grow through data-driven insights, smart systems, and technology-led transformation.",
-    temperature: "27°C",
+      "We help institutions unlock growth through data analytics, smart infrastructure, and technology-led transformation, turning insights into measurable impact.",
+    temperature: "26°C",
     weather: "Clear",
   },
 
@@ -36,10 +36,10 @@ const slides = [
   {
     desktopImage: "/optimized/pic4_main.jpg",
     mobileImage: "/optimized/pic4_mainM.jpg",
-    title1: "Transforming Vision,",
+    title1: "Transforming Vision into",
     title2: "Intelligent Systems",
     description:
-      "Delivering next-generation digital solutions that drive innovation, efficiency, and lasting impact.",
+      "Instrek partners with enterprises, startups, and governments to deliver next-generation technologies that drive innovation, efficiency, and long-term value.",
     temperature: "30°C",
     weather: "Partly Cloudy",
   },
@@ -127,12 +127,13 @@ const HeroSection = () => {
 
       {/* Text Content */}
       <div className="relative z-20 w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-start text-white max-w-4xl mx-auto sm:mx-0">
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight">
+        <h1 className="block max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
           {slides[currentIndex].title1}
         </h1>
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mt-1 sm:mt-2 md:mt-4 tracking-tight leading-tight">
+        <h1 className="block max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
           {slides[currentIndex].title2}
         </h1>
+
         <p className="mt-3 sm:mt-4 md:mt-6 text-[#ea4820] text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed max-w-3xl">
           {slides[currentIndex].description}
         </p>
