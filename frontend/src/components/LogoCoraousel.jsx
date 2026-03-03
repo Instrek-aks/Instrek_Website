@@ -44,6 +44,7 @@ const clientLogos = [
   { name: "", image: "/optimized/iit.png" },
   { name: "", image: "/optimized/netguru.png" },
   { name: "", image: "/optimized/post.png" },
+  { name: "", image: "/optimized/ashirwad_plastics.png" },
 ];
 
 export const LogoCarousel = () => {
