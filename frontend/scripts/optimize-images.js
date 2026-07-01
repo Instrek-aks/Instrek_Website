@@ -36,13 +36,21 @@ async function processImages(directory) {
         const ext = extname(file).toLowerCase();
         if (!supportedFormats.includes(ext)) continue;
 
-        const relativePath = relative(inputDir, directory);
-        const outputSubDir = join(outputDir, relativePath);
+        // Strip "optimized" prefix from relative path to prevent nested /optimized/optimized output
+        let relPath = relative(inputDir, directory);
+        if (relPath.startsWith('optimized')) {
+            relPath = relPath.slice('optimized'.length).replace(/^[\\\/]/, '');
+        }
+
+        const outputSubDir = join(outputDir, relPath);
         if (!existsSync(outputSubDir)) {
             await mkdir(outputSubDir, { recursive: true });
         }
 
         const outputPath = join(outputSubDir, `${parse(file).name}.webp`);
+
+        // Skip if input is already the output WebP file to prevent read/write conflicts
+        if (inputPath === outputPath) continue;
 
         try {
             await sharp(inputPath)

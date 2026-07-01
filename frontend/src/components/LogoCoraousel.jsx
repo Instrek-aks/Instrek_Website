@@ -25,26 +25,26 @@ const engagementLogos = [
   { name: "", image: NITILogo },
   { name: "", image: Second },
   { name: "", image: Third },
-  { name: "", image: "/optimized/shardalogo.png" },
+  { name: "", image: "/optimized/shardalogo.webp" },
 
-  { name: "", image: "/optimized/miblogo.png" },
-  { name: "", image: "/optimized/broadp.png" },
-  { name: "", image: "/optimized/meitylogo.png" },
+  { name: "", image: "/optimized/miblogo.webp" },
+  { name: "", image: "/optimized/broadp.webp" },
+  { name: "", image: "/optimized/meitylogo.webp" },
 ];
 
 const clientLogos = [
   { name: "", image: LTLogo },
-  { name: "", image: "/optimized/Syniti.png" },
-  { name: "", image: "/optimized/Traya.png" },
+  { name: "", image: "/optimized/Syniti.webp" },
+  { name: "", image: "/optimized/Traya.webp" },
   { name: "", image: ICICILogo },
   { name: "", image: TataLogo },
-  { name: "", image: "/optimized/nsdc.png" },
+  { name: "", image: "/optimized/nsdc.webp" },
   { name: "", image: Suzuki },
-  { name: "", image: "/optimized/mcc.png" },
-  { name: "", image: "/optimized/iit.png" },
-  { name: "", image: "/optimized/netguru.png" },
-  { name: "", image: "/optimized/post.png" },
-  { name: "", image: "/optimized/ashirwad_plastics.png" },
+  { name: "", image: "/optimized/mcc.webp" },
+  { name: "", image: "/optimized/iit.webp" },
+  { name: "", image: "/optimized/netguru.webp" },
+  { name: "", image: "/optimized/post.webp" },
+  { name: "", image: "/optimized/ashirwad_plastics.webp" },
 ];
 
 export const LogoCarousel = () => {

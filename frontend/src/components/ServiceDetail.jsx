@@ -32,23 +32,28 @@ export default function DroneCard({
 
   return (
     <div
-      className="border boder-white relative w-full h-[400px] md:h-[400px] overflow-hidden rounded-lg text-white cursor-pointer service-card-zoom"
+      className="relative w-full h-[320px] sm:h-[350px] md:h-[400px] overflow-hidden text-white cursor-pointer service-card-zoom flex flex-col justify-between"
       onClick={handleClick}
     >
+      {/* Top gradient line */}
+      <div className="w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white relative z-20">
+        <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-ping"></div>
+      </div>
+
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-center bg-cover"
+        className="absolute inset-0 bg-center bg-cover z-0"
         style={{
-          backgroundImage: `url('${image}')`, // Replace with correct path
+          backgroundImage: `url('${image}')`,
           fontFamily: "'PP Neue Montreal', sans-serif",
         }}
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black z-10" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between p-4 md:p-6">
+      <div className="relative z-10 flex-1 flex flex-col justify-between p-4 md:p-6 my-1">
         <div>
           <h3 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
             {titleLine1}
@@ -69,6 +74,11 @@ export default function DroneCard({
             </span>
           </div>
         </div>
+      </div>
+
+      {/* Bottom gradient line */}
+      <div className="w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white relative z-20">
+        <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-ping"></div>
       </div>
     </div>
   );

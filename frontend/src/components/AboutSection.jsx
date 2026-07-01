@@ -4,7 +4,7 @@ const AboutSection = () => {
   return (
     <section
       className="bg-[#121212] relative overflow-hidden pt-[60px]"
-      style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
+      style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       {/* Background Video */}
       <video

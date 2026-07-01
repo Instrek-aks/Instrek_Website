@@ -60,8 +60,22 @@ const StatsGrid = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const handleMobileScroll = (e) => {
+    if (window.innerWidth >= 1024) return;
+    const container = e.target;
+    const scrollLeft = container.scrollLeft;
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    if (maxScrollLeft > 0) {
+      const progress = scrollLeft / maxScrollLeft;
+      setScrollProgress(progress);
+      const index = Math.round(progress * (stats.length - 1));
+      setCurrentIndex(index);
+    }
+  };
+
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
+    if (!cardsContainer) return;
 
     const getPadding = () => {
       if (window.innerWidth < 768) return 20;
@@ -69,28 +83,33 @@ const StatsGrid = () => {
       return 100;
     };
 
-    gsap.to(cardsContainer, {
-      x: () => -(cardsContainer.scrollWidth - window.innerWidth + getPadding()),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=1000",
-        pin: true,
-        scrub: 0.5,
-        snap: 1 / (stats.length - 1),
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          setScrollProgress(progress);
-          const index = Math.round(progress * (stats.length - 1));
-          setCurrentIndex(index);
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      // Desktop: horizontal scroll pinning
+      gsap.to(cardsContainer, {
+        x: () => -(cardsContainer.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=2500", // Slowed down from 1000 to 2500
+          pin: true,
+          scrub: 0.5,
+          snap: 1 / (stats.length - 1),
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            setScrollProgress(progress);
+            const index = Math.round(progress * (stats.length - 1));
+            setCurrentIndex(index);
+          },
         },
-      },
+      });
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      mm.revert();
     };
   }, []);
 
@@ -116,7 +135,10 @@ const StatsGrid = () => {
           </div>
 
           {/* Stats Cards Container */}
-          <div className="w-full h-screen flex items-center overflow-hidden">
+          <div 
+            className="w-full h-screen flex items-center overflow-x-auto lg:overflow-hidden snap-x snap-mandatory no-scrollbar"
+            onScroll={handleMobileScroll}
+          >
             <div
               ref={cardsContainerRef}
               className="flex flex-nowrap gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 px-2 sm:px-3 md:px-8 lg:px-12 mt-24"
@@ -125,7 +147,7 @@ const StatsGrid = () => {
                 <div
                   key={index}
                   className="card min-w-[96vw] sm:min-w-[92vw] md:min-w-[80vw] lg:min-w-[500px] xl:min-w-[600px] 2xl:min-w-[700px] 
-                            w-[96vw] sm:w-[92vw] md:w-[80vw] lg:w-[520px] xl:w-[600px] 2xl:w-[700px] flex-shrink-0"
+                            w-[96vw] sm:w-[92vw] md:w-[80vw] lg:w-[520px] xl:w-[600px] 2xl:w-[700px] flex-shrink-0 snap-center"
                 >
                   <StatCard
                     title={stat.title}

@@ -689,7 +689,7 @@ const droneCardData = [
     titleLine2: "Intelligence",
     description:
       "From traffic systems to medical diagnosis-AI that understands and acts.",
-    image: "/optimized/robo1.jpg",
+    image: "/optimized/robo1.webp",
     headline: "Making Machines Think Humanly",
     overview:
       "We deploy conversational AI, generative AI, and agentic bots for domains like healthcare, fintech, transport, and education.",
@@ -1021,8 +1021,22 @@ const DroneServices = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const handleMobileScroll = (e) => {
+    if (window.innerWidth >= 1024) return;
+    const container = e.target;
+    const scrollLeft = container.scrollLeft;
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    if (maxScrollLeft > 0) {
+      const progress = scrollLeft / maxScrollLeft;
+      setScrollProgress(progress);
+      const index = Math.round(progress * (droneCardData.length - 1));
+      setCurrentIndex(index);
+    }
+  };
+
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
+    if (!cardsContainer) return;
 
     const getPadding = () => {
       if (window.innerWidth < 768) return 20;
@@ -1030,35 +1044,39 @@ const DroneServices = () => {
       return 100;
     };
 
-    gsap.to(cardsContainer, {
-      x: () => -(cardsContainer.scrollWidth - window.innerWidth + getPadding()),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=2000",
-        pin: true,
-        // scrub: 0.5,
-        scrub: true,
-        snap: {
-          snapTo: 1 / (droneCardData.length - 1),
-          duration: 0.1,
-          delay: 0,
-          ease: "power1.out",
-          inertia: false,
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      // Desktop: horizontal scroll pinning
+      gsap.to(cardsContainer, {
+        x: () => -(cardsContainer.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=4000", // Slowed down from 2000 to 4000
+          pin: true,
+          scrub: true,
+          snap: {
+            snapTo: 1 / (droneCardData.length - 1),
+            duration: 0.1,
+            delay: 0,
+            ease: "power1.out",
+            inertia: false,
+          },
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            setScrollProgress(progress);
+            const index = Math.round(progress * (droneCardData.length - 1));
+            setCurrentIndex(index);
+          },
         },
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          setScrollProgress(progress);
-          const index = Math.round(progress * (droneCardData.length - 1));
-          setCurrentIndex(index);
-        },
-      },
+      });
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      mm.revert();
     };
   }, []);
 
@@ -1077,10 +1095,10 @@ const DroneServices = () => {
       </div>
 
       {/* Main Content Container */}
-      <div ref={containerRef} className="relative">
+      <div ref={containerRef} className="relative min-h-screen flex flex-col justify-center py-4 md:py-8">
         {/* Fixed Position Header */}
-        <div className="relative z-10 px-4 md:px-6 text-center py-12 md:py-16">
-          <h2 className="pt-6 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
+        <div className="relative z-10 px-4 md:px-6 text-center py-2 md:py-4">
+          <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
             FUTURE MIND TECHNOLOGY <span className="text-white">SERVICES</span>
           </h2>
           {/* <p className="text-lg md:text-2xl leading-relaxed text-white mt-4 max-w-3xl mx-auto text-center font-light">
@@ -1090,10 +1108,13 @@ const DroneServices = () => {
         </div>
 
         {/* Cards Container with smoother transitions */}
-        <div className="w-full flex items-center overflow-hidden">
+        <div 
+          className="w-full flex items-center overflow-x-auto lg:overflow-hidden snap-x snap-mandatory no-scrollbar py-4"
+          onScroll={handleMobileScroll}
+        >
           <div
             ref={cardsContainerRef}
-            className="flex flex-nowrap gap-6 md:gap-8 lg:gap-12 xl:gap-16 px-4 sm:px-6 md:px-8 lg:px-12 mt-8"
+            className="flex flex-nowrap gap-4 sm:gap-6 md:gap-6 lg:gap-8 xl:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 mt-2 md:mt-4"
             style={{
               transition: "transform 0.5s ease-out",
               willChange: "transform",
@@ -1104,7 +1125,7 @@ const DroneServices = () => {
                 key={index}
                 className="card min-w-[75vw] sm:min-w-[85vw] md:min-w-[75vw] lg:min-w-[500px] xl:min-w-[600px] 
                           w-[90vw] sm:w-[85vw] md:w-[75vw] lg:w-[500px] xl:w-[600px] flex-shrink-0 
-                          transform transition-all duration-500 ease-out "
+                          transform transition-all duration-500 ease-out snap-center"
               >
                 <DroneCard
                   titleLine1={card.titleLine1}

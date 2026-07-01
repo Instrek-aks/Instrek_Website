@@ -40,20 +40,30 @@ export const LogoSection = ({
               <div
                 key={index}
                 className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 
-                           bg-white/10 backdrop-blur-sm rounded-lg border border-white/90 
-                           hover:bg-white/15 hover:border-white/30 transition-all duration-300 
-                           hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20
-                           group"
+                           flex items-center justify-center relative
+                           hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10
+                           group transition-all duration-300"
               >
-                <div className="w-full h-full flex justify-center items-center p-1 sm:p-2">
+                {/* Top gradient line */}
+                <div className="absolute top-0 left-0 w-full h-[2px] sm:h-[3px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-10">
+                  <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white rounded-full animate-ping"></div>
+                </div>
+
+                {/* Logo Image Wrapper */}
+                <div className="w-full h-full flex justify-center items-center p-3 sm:p-4 bg-transparent z-0">
                   <img
                     src={logo.image}
                     alt={logo.name}
-                    className="w-full h-full object-contain filter brightness-[1.4] contrast-[1.2] 
+                    className="max-w-full max-h-full object-contain filter brightness-[1.4] contrast-[1.2] 
                              group-hover:brightness-[1.6] group-hover:contrast-[1.3] 
                              transition-all duration-300"
                     loading="lazy"
                   />
+                </div>
+
+                {/* Bottom gradient line */}
+                <div className="absolute bottom-0 left-0 w-full h-[2px] sm:h-[3px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-10">
+                  <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white rounded-full animate-ping"></div>
                 </div>
               </div>
             ))}

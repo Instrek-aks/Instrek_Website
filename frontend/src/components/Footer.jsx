@@ -182,7 +182,7 @@ const Footer = () => {
       titleLine2: "Intelligence",
       description:
         "From traffic systems to medical diagnosis—AI that understands and acts.",
-      image: "/optimized/robo1.jpg",
+      image: "/optimized/robo1.webp",
       headline: "Making Machines Think Humanly",
       overview:
         "We deploy conversational AI, generative AI, and agentic bots for domains like healthcare, fintech, transport, and education.",
@@ -645,7 +645,7 @@ const Footer = () => {
             <div className="text-gray-400">© Instrek Technologies</div>
 
             <div className="flex items-center space-x-4">
-              <span className="text-gray-400">All Rights Reserved 2025</span>
+              <span className="text-gray-400">All Rights Reserved 2026</span>
               <div className="flex space-x-3">
                 {socialLinks.map((social) => (
                   <a

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const slides = [
   {
-    desktopImage: "/optimized/pic1_main.jpg",
-    mobileImage: "/optimized/pic1_main.jpg",
+    desktopImage: "/optimized/pic1_main.webp",
+    mobileImage: "/optimized/pic1_main.webp",
     title1: "Where Data, Technology &",
     title2: "Strategy Converge",
     description:
@@ -13,8 +13,8 @@ const slides = [
   },
 
   {
-    desktopImage: "./optimized/heroImageRL.webp",
-    mobileImage: "./optimized/heroImageRLM2.jpg",
+    desktopImage: "/optimized/heroImageRL.webp",
+    mobileImage: "/optimized/heroImageRLM2.webp",
     title1: "Empowering Futures,",
     title2: "Engineered Today",
     description:
@@ -23,8 +23,8 @@ const slides = [
     weather: "Cloudy",
   },
   {
-    desktopImage: "/optimized/smartR.webp",
-    mobileImage: "/optimized/smartR.webp",
+    desktopImage: "/optimized/cit.webp",
+    mobileImage: "/optimized/cit.webp",
     title1: "Smarter Cities,",
     title2: "Stronger Infrastructure",
     description:
@@ -34,8 +34,8 @@ const slides = [
   },
 
   {
-    desktopImage: "/optimized/pic4_main.jpg",
-    mobileImage: "/optimized/pic4_mainM.jpg",
+    desktopImage: "/optimized/pic4_main.webp",
+    mobileImage: "/optimized/pic4_mainM.webp",
     title1: "Transforming Vision into",
     title2: "Intelligent Systems",
     description:
