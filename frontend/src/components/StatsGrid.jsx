@@ -77,39 +77,29 @@ const StatsGrid = () => {
     const cardsContainer = cardsContainerRef.current;
     if (!cardsContainer) return;
 
-    const getPadding = () => {
-      if (window.innerWidth < 768) return 20;
-      if (window.innerWidth < 1024) return 40;
-      return 100;
-    };
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 1024px)", () => {
-      // Desktop: horizontal scroll pinning
-      gsap.to(cardsContainer, {
-        x: () => -(cardsContainer.scrollWidth - window.innerWidth),
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=2500", // Slowed down from 1000 to 2500
-          pin: true,
-          scrub: 0.5,
-          snap: 1 / (stats.length - 1),
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            setScrollProgress(progress);
-            const index = Math.round(progress * (stats.length - 1));
-            setCurrentIndex(index);
-          },
+    const anim = gsap.to(cardsContainer, {
+      x: () => -(cardsContainer.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=2500", // Slowed down from 1000 to 2500
+        pin: true,
+        scrub: 0.5,
+        snap: 1 / (stats.length - 1),
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          setScrollProgress(progress);
+          const index = Math.round(progress * (stats.length - 1));
+          setCurrentIndex(index);
         },
-      });
+      },
     });
 
     return () => {
-      mm.revert();
+      anim.scrollTrigger?.kill();
+      anim.kill();
     };
   }, []);
 
@@ -136,8 +126,7 @@ const StatsGrid = () => {
 
           {/* Stats Cards Container */}
           <div 
-            className="w-full h-screen flex items-center overflow-x-auto lg:overflow-hidden snap-x snap-mandatory no-scrollbar"
-            onScroll={handleMobileScroll}
+            className="w-full h-screen flex items-center overflow-hidden no-scrollbar"
           >
             <div
               ref={cardsContainerRef}

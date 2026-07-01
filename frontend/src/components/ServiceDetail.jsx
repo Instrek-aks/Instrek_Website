@@ -32,25 +32,26 @@ export default function DroneCard({
 
   return (
     <div
-      className="relative w-full h-[320px] sm:h-[350px] md:h-[400px] overflow-hidden text-white cursor-pointer service-card-zoom flex flex-col justify-between"
+      className="relative w-full h-[320px] sm:h-[350px] md:h-[400px] text-white cursor-pointer service-card-zoom flex flex-col justify-between"
       onClick={handleClick}
     >
       {/* Top gradient line */}
-      <div className="w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white relative z-20">
+      <div className="absolute -top-4 md:-top-6 left-0 w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-20">
         <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-ping"></div>
       </div>
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover z-0"
-        style={{
-          backgroundImage: `url('${image}')`,
-          fontFamily: "'PP Neue Montreal', sans-serif",
-        }}
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black z-10" />
+      {/* Background Image & Overlay Wrapper (with overflow-hidden) */}
+      <div className="absolute inset-0 overflow-hidden z-0 rounded-none">
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url('${image}')`,
+            fontFamily: "'PP Neue Montreal', sans-serif",
+          }}
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col justify-between p-4 md:p-6 my-1">
@@ -77,7 +78,7 @@ export default function DroneCard({
       </div>
 
       {/* Bottom gradient line */}
-      <div className="w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white relative z-20">
+      <div className="absolute -bottom-6 md:-bottom-[36px] left-0 w-full h-[3px] sm:h-[4px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-20">
         <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-ping"></div>
       </div>
     </div>

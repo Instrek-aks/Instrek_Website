@@ -37,11 +37,8 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
         </p>
       </div> */}
 
-      {/* Top white line */}
-      <div
-        className="w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white 
-                      mt-6 mb-4  sm:mb-10 md:mb-12 lg:mb-10 relative"
-      >
+      {/* Top gradient line */}
+      <div className="absolute -top-4 md:-top-6 left-0 w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-20">
         <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-ping delay-500"></div>
       </div>
 
@@ -56,10 +53,7 @@ export default function StatCard({ title = "ajay", value, label, upperText }) {
       </h3>
 
       {/* Bottom gradient line */}
-      <div
-        className="w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white 
-                      mb-8 sm:mb-10 md:mb-12 lg:mb-10 relative"
-      >
+      <div className="absolute -bottom-6 md:-bottom-[36px] left-0 w-full h-[3px] sm:h-[4px] md:h-[5px] lg:h-[4px] xl:h-[5px] bg-gradient-to-r from-orange-700 via-cyan-700 to-white z-20">
         <div className="absolute right-1/4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-ping delay-500"></div>
       </div>
 
