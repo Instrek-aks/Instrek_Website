@@ -183,6 +183,7 @@ body {
 
 .animate-scroll {
   animation: scroll 30s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll:hover {
@@ -200,6 +201,7 @@ body {
 /* Custom utility classes */
 .animate-slow-spin {
   animation: slow-spin 8s linear infinite;
+  will-change: transform;
 }
 
 .animate-glow-pulse {
@@ -208,6 +210,7 @@ body {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Writing mode utilities for vertical text */
@@ -271,10 +274,7 @@ body {
   }
 }
 
-/* Ensure smooth scrolling on all devices */
-html {
-  scroll-behavior: smooth;
-}
+/* Avoid CSS scroll-behavior: smooth as it conflicts with GSAP ScrollTrigger */
 
 /* Improve touch targets on mobile */
 @media (max-width: 768px) {
@@ -367,10 +367,7 @@ html {
 .read-the-docs {
   color: #888;
 }
-/* If not using Tailwind's scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
+/* Avoid CSS scroll-behavior: smooth to prevent conflict with GSAP ScrollTrigger */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

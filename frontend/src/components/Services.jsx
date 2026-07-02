@@ -1105,7 +1105,6 @@ const DroneServices = () => {
             ref={cardsContainerRef}
             className="flex flex-nowrap gap-4 sm:gap-6 md:gap-6 lg:gap-8 xl:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 mt-2 md:mt-4"
             style={{
-              transition: "transform 0.5s ease-out",
               willChange: "transform",
             }}
           >
