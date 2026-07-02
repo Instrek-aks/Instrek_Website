@@ -471,17 +471,10 @@ html {
   }
 }
 
-/* TeamCard fixed height only for very large screens (150% zoom or >1920px) */
-@media (min-width: 1920px) {
-  .team-card-custom-height {
-    height: 620px !important;
-  }
-}
-
-@media (max-width: 1919px) {
-  .team-card-custom-height {
-    height: 610px !important;
-  }
+/* TeamCard height to fill container, with a min-height of 540px to match Sanjana's height */
+.team-card-custom-height {
+  height: 100%;
+  min-height: 540px;
 }
 
 /* Team grid: 4 columns for up to 1919px (125%), 3 columns for 1920px+ (150%) */

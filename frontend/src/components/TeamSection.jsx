@@ -61,12 +61,12 @@ const teamMembers = [
   },
   {
     id: 7,
-    name: "Tithika Mittal",
-    role: "Technology Ecosystem Coordinator",
-    image: "/optimized/tithika.webp",
-    bio: "Tithika ensures our products/technologies align with market needs, coordinating development with a keen sense of what's next on the map.",
-    linkedinUrl: "https://www.linkedin.com/in/tithika-mittal-504775321/",
-    location: "Delhi, IND",
+    name: "Aryavarta Singh",
+    role: "Research & Development Head",
+    image: "/optimized/aryavarta.webp",
+    bio: "A true robotics enthusiast who loves building Rovers and AMRs, Aryavarta is the brain behind many of our coolest drone innovations at Instrek.",
+    linkedinUrl: "https://www.linkedin.com/in/aryavarta-singh-832689195/",
+    location: "Karnataka, IND",
   },
   {
     id: 8,
@@ -79,35 +79,6 @@ const teamMembers = [
   },
   {
     id: 9,
-    name: "Aryavarta Singh",
-    role: "Drone Robotics Expert",
-    image: "/optimized/aryavarta.webp",
-    bio: "A true robotics enthusiast who loves building Rovers and AMRs, Aryavarta is the brain behind many of our coolest drone innovations at Instrek.",
-    linkedinUrl: "https://www.linkedin.com/in/aryavarta-singh-832689195/",
-    location: "Karnataka, IND",
-  },
-  {
-    id: 10,
-    name: "Srilalitha M Srinivasan",
-    role: "Drone Communications Expert",
-    image: "/optimized/sri.webp",
-    bio: "Sri is working on making our drones talk faster and safer. From secure links to anti-jamming tech, she's all about keeping our drones connected.",
-    linkedinUrl:
-      "https://www.linkedin.com/in/srilalitha-m-srinivasan-23b531243/",
-    location: "Karnataka, IND",
-  },
-
-  {
-    id: 11,
-    name: "Gagan Menderkar",
-    role: "Mechanical Design Expert",
-    image: "/optimized/gagan.webp",
-    bio: "Gagan makes sure our drones aren't just clever on paper his simulation and design skills mean they're strong, reliable, and ready to fly.",
-    linkedinUrl: "https://www.linkedin.com/in/gagan-menderkar-b3a243255/",
-    location: "Karnataka, IND",
-  },
-  {
-    id: 12,
     name: "Vivek Kolekar",
     role: "Mechanical Design & Manufacturing Expert",
     image: "/optimized/vivek.webp", // (Consider updating with a unique image for Vivek)
@@ -184,9 +155,9 @@ const Team = () => {
             </div>
 
             {/* Team Grid - Balanced layouts */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10 items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
               {teamMembers.slice(0, visibleMembers).map((member) => (
-                <div key={member.id} className="flex justify-center">
+                <div key={member.id} className="flex justify-center w-full h-full">
                   <TeamCard
                     name={member.name}
                     role={member.role}
