@@ -1018,21 +1018,11 @@ const droneCardData = [
 const DroneServices = () => {
   const containerRef = useRef(null);
   const cardsContainerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const handleMobileScroll = (e) => {
-    if (window.innerWidth >= 1024) return;
-    const container = e.target;
-    const scrollLeft = container.scrollLeft;
-    const maxScrollLeft = container.scrollWidth - container.clientWidth;
-    if (maxScrollLeft > 0) {
-      const progress = scrollLeft / maxScrollLeft;
-      setScrollProgress(progress);
-      const index = Math.round(progress * (droneCardData.length - 1));
-      setCurrentIndex(index);
-    }
-  };
+
 
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
@@ -1044,15 +1034,14 @@ const DroneServices = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=4000", // Slowed down from 2000 to 4000
+        end: () => "+=" + (cardsContainer.scrollWidth - window.innerWidth),
         pin: true,
-        scrub: true,
+        scrub: 0.5,
         snap: {
           snapTo: 1 / (droneCardData.length - 1),
-          duration: 0.1,
-          delay: 0,
-          ease: "power1.out",
-          inertia: false,
+          duration: { min: 0.3, max: 0.8 },
+          delay: 0.05,
+          ease: "power1.inOut",
         },
         invalidateOnRefresh: true,
         onUpdate: (self) => {
@@ -1071,7 +1060,7 @@ const DroneServices = () => {
   }, []);
 
   return (
-    <div className="bg-black relative min-h-screen">
+    <div className="bg-black relative min-h-fit lg:min-h-screen">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -1085,71 +1074,77 @@ const DroneServices = () => {
       </div>
 
       {/* Main Content Container */}
-      <div ref={containerRef} className="relative min-h-screen flex flex-col justify-center py-4 md:py-8">
+      <div ref={containerRef} className="relative h-screen w-full flex flex-col justify-center items-center lg:justify-between gap-8 lg:gap-0 py-6 md:py-8 lg:py-10 box-border">
         {/* Fixed Position Header */}
-        <div className="relative z-10 px-4 md:px-6 text-center py-2 md:py-4">
-          <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
-            FUTURE MIND TECHNOLOGY <span className="text-white">SERVICES</span>
+        <div className="relative z-10 px-4 text-center pt-24 sm:pt-28 lg:pt-24 pb-2">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a] leading-tight">
+            FUTURE MIND TECHNOLOGY <br className="hidden sm:block lg:hidden" /> <span className="text-white">SERVICES</span>
           </h2>
-          {/* <p className="text-lg md:text-2xl leading-relaxed text-white mt-4 max-w-3xl mx-auto text-center font-light">
-            As a one-stop Advisory & Delivery company, we help clients achieve
-            ambitious goals in the digital economy.
-          </p> */}
         </div>
 
-        {/* Cards Container with smoother transitions */}
-        <div 
-          className="w-full flex items-center overflow-hidden no-scrollbar py-4"
-        >
-          <div
-            ref={cardsContainerRef}
-            className="flex flex-nowrap gap-4 sm:gap-6 md:gap-6 lg:gap-8 xl:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 mt-2 md:mt-4"
-            style={{
-              willChange: "transform",
-            }}
+        <div className="w-full flex flex-col justify-center overflow-hidden py-2">
+          <div 
+            ref={scrollContainerRef}
+            className="w-full overflow-hidden no-scrollbar relative"
           >
-            {droneCardData.map((card, index) => (
+            <div
+              ref={cardsContainerRef}
+              className="flex flex-nowrap gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-[5vw] sm:px-[7.5vw] md:px-[12.5vw] lg:px-12 py-4"
+              style={{
+                willChange: "transform",
+              }}
+            >
+              {droneCardData.map((card, index) => (
+                <div
+                  key={index}
+                  className="card min-w-[90vw] sm:min-w-[85vw] md:min-w-[75vw] lg:min-w-[700px] xl:min-w-[800px] 2xl:min-w-[900px] 
+                            w-[90vw] sm:w-[85vw] md:w-[75vw] lg:w-[700px] xl:w-[800px] 2xl:w-[900px] flex-shrink-0 
+                            transform transition-all duration-500 ease-out snap-center"
+                >
+                  <DroneCard
+                    titleLine1={card.titleLine1}
+                    titleLine2={card.titleLine2}
+                    description={card.description}
+                    image={card.image}
+                    headline={card.headline}
+                    overview={card.overview}
+                    capabilities={card.capabilities}
+                    impact={card.impact}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Side Navigation Hints */}
+            <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white/80 text-sm hidden lg:block">
+              <div className="flex flex-col items-center space-y-3 bg-white/5 px-3 py-4 rounded-full ">
+              </div>
+            </div>
+
+            <div className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white/80 text-sm hidden lg:block">
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Indicators - Bottom */}
+        <div className="w-full flex items-center justify-center space-x-4 py-4 z-10">
+          {/* Progress Dots */}
+          <div className="flex space-x-2">
+            {droneCardData.map((_, index) => (
               <div
                 key={index}
-                className="card min-w-[75vw] sm:min-w-[85vw] md:min-w-[75vw] lg:min-w-[500px] xl:min-w-[600px] 
-                          w-[90vw] sm:w-[85vw] md:w-[75vw] lg:w-[500px] xl:w-[600px] flex-shrink-0 
-                          transform transition-all duration-500 ease-out snap-center"
-              >
-                <DroneCard
-                  titleLine1={card.titleLine1}
-                  titleLine2={card.titleLine2}
-                  description={card.description}
-                  image={card.image}
-                  headline={card.headline}
-                  overview={card.overview}
-                  capabilities={card.capabilities}
-                  impact={card.impact}
-                />
-              </div>
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-[#ea4820] scale-125"
+                    : "bg-white/40 hover:bg-white/60"
+                }`}
+              />
             ))}
           </div>
 
-          {/* Side Navigation Hints */}
-          <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white/80 text-sm hidden lg:block">
-            <div className="flex flex-col items-center space-y-3 bg-white/5 px-3 py-4 rounded-full ">
-              {/* <div className="w-8 h-8 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/10 cursor-pointer transition-colors">
-                ←
-              </div>
-              <span className="writing-mode-vertical text-orientation-mixed tracking-wider">
-                Scroll
-              </span> */}
-            </div>
-          </div>
-
-          <div className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white/80 text-sm hidden lg:block">
-            {/* <div className="flex flex-col items-center space-y-3 bg-white/5 px-3 py-4 rounded-full backdrop-blur-sm">
-              <div className="w-8 h-8 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/10 cursor-pointer transition-colors">
-                →
-              </div>
-              <span className="writing-mode-vertical text-orientation-mixed tracking-wider">
-                Scroll
-              </span>
-            </div> */}
+          {/* Card Counter */}
+          <div className="ml-4 text-white/80 text-sm font-medium">
+            {currentIndex + 1} / {droneCardData.length}
           </div>
         </div>
       </div>

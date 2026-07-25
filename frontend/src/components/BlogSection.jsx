@@ -65,13 +65,13 @@ const BlogSection = () => {
         {/* Header */}
         <div className="mb-16 text-left">
           <h2 className="text-6xl font-black mb-4">
-            <span>BLOG</span>
+            <span>INDUSTRY INSIGHTS</span>
             <span className="text-[#EA6220]"> /</span>
           </h2>
           <div className="text-4xl font-light text-gray-300">
             LATEST FROM
             <br />
-            OUR BLOG
+            OUR INSIGHTS
             <span className="text-xl text-gray-400 ml-8">2016/2015/2014</span>
           </div>
         </div>

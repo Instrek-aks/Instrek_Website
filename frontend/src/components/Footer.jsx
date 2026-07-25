@@ -61,6 +61,9 @@ const Footer = () => {
         message:
           "Sorry, there was an error. Please try again or contact us directly at connect@instrek.com",
       });
+      const subject = encodeURIComponent("Inquiry - Instrek Website");
+      const body = encodeURIComponent(`Hi Instrek Team,\n\nI would like to get in touch. My email is: ${email}`);
+      window.location.href = `mailto:connect@instrek.com?subject=${subject}&body=${body}`;
     } finally {
       setIsSubmitting(false);
     }
@@ -508,7 +511,6 @@ const Footer = () => {
                 onSubmit={handleSubmit}
                 className="space-y-3"
                 data-netlify="true"
-                netlify
                 name="contact-form"
               >
                 <input type="hidden" name="form-name" value="contact-form" />

@@ -38,6 +38,7 @@ import StatsGrid from "./components/StatsGrid.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 import Solutions from "./components/Solutions.jsx";
 import SolutionDetail from "./components/SolutionDetail.jsx";
+import SubscriptionModal from "./components/SubscriptionModal.jsx";
 
 // Loading fallback component
 const LoadingSpinner = () => (
@@ -50,6 +51,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SubscriptionModal />
       <div className="font-[Neue_Montreal] overflow-x-hidden">
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>

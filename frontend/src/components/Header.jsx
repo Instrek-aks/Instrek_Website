@@ -61,7 +61,7 @@ const Header = () => {
 
       // If we're on blog page, set active menu to Blog
       if (pathname === "/blog" || pathname.startsWith("/blog/")) {
-        setActiveMenu("Blog");
+        setActiveMenu("Industry Insights");
         return;
       }
 
@@ -126,13 +126,8 @@ const Header = () => {
     { label: "About", link: "/#about", isHashLink: true },
     { label: "Services", link: "/#services", isHashLink: true },
     { label: "Team", link: "/#team", isHashLink: true },
-    { label: "Blog", link: "/blog", isHashLink: false },
+    { label: "Industry Insights", link: "/blog", isHashLink: false },
     { label: "Our Solutions", link: "/solutions", isHashLink: false },
-    {
-      label: "Contact",
-      link: "/contact-us",
-      isHashLink: false,
-    },
   ];
 
   const handleLogoClick = () => {

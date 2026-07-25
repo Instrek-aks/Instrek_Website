@@ -32,7 +32,7 @@ export default function DroneCard({
 
   return (
     <div
-      className="relative w-full h-[320px] sm:h-[350px] md:h-[400px] text-white cursor-pointer service-card-zoom flex flex-col justify-between"
+      className="group relative w-full h-[68vh] sm:h-[65vh] md:h-[60vh] lg:h-[500px] xl:h-[550px] 2xl:h-[600px] text-white cursor-pointer service-card-zoom flex flex-col justify-between overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#ea4820]/15 rounded-2xl border border-white/[0.05] service-card-responsive"
       onClick={handleClick}
     >
       {/* Top gradient line */}
@@ -43,7 +43,7 @@ export default function DroneCard({
       {/* Background Image & Overlay Wrapper (with overflow-hidden) */}
       <div className="absolute inset-0 overflow-hidden z-0 rounded-none">
         <div
-          className="absolute inset-0 bg-center bg-cover"
+          className="absolute inset-0 bg-center bg-cover transition-transform duration-700 ease-out group-hover:scale-105"
           style={{
             backgroundImage: `url('${image}')`,
             fontFamily: "'PP Neue Montreal', sans-serif",
@@ -54,23 +54,23 @@ export default function DroneCard({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between p-4 md:p-6 my-1">
+      <div className="relative z-10 flex-1 flex flex-col justify-between p-4 sm:p-6 md:p-8 my-1">
         <div>
-          <h3 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
+          <h3 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold mb-1 md:mb-2">
             {titleLine1}
           </h3>
-          <h3 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
+          <h3 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold mb-1 md:mb-2">
             {titleLine2}
           </h3>
         </div>
 
-        <div className="space-y-2 md:space-y-4">
-          <p className="text-sm md:text-xl leading-relaxed text-white">
+        <div className="space-y-4 md:space-y-6">
+          <p className="text-[17px] sm:text-xl lg:text-xl xl:text-2xl leading-relaxed text-white">
             {description}
           </p>
-          <div className="flex items-center text-lg md:text-2xl font-semibold">
+          <div className="flex items-center text-lg sm:text-xl lg:text-2xl font-semibold">
             Learn more
-            <span className="ml-2 w-6 h-6 md:w-8 md:h-8 bg-[#ea4820] rounded-full flex items-center justify-center">
+            <span className="ml-2 w-6 h-6 md:w-8 md:h-8 bg-[#ea4820] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
               <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-white" />
             </span>
           </div>

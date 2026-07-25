@@ -128,7 +128,7 @@ const Team = () => {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden min-h-screen">
+      <div className="relative w-full overflow-hidden min-h-fit lg:min-h-screen">
         {/* Background image layer */}
         <div
           className="absolute inset-0 z-0"

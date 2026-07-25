@@ -63,7 +63,7 @@ const BlogIndex = () => {
           </div>
           <button
             onClick={() => navigate("/")}
-            className="flex items-center mt-6 text-white bg-[#ea4820] hover:bg-[#ea4820]/90 px-4 py-2 rounded-lg mb-8 transition-all"
+            className="flex items-center gap-2 mt-6 text-white bg-[#ea4820] hover:bg-[#ea4820]/90 px-4 py-2 rounded-lg mb-8 transition-all"
           >
             <Home size={20} />
             Back to Home

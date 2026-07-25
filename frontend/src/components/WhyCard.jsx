@@ -282,18 +282,25 @@ const WhyCard = () => {
       {/* Main Content Container */}
       <div ref={containerRef} className="relative">
         {/* Fixed Position Header */}
-        <div className="relative z-10 px-4 md:px-6 text-center py-12 md:py-16">
+        <div className="relative z-10 px-4 md:px-6 text-center pt-20 pb-12 md:py-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#ea4820] to-[#ff724a]">
             FUTURE MIND <span className="text-white">SERVICES</span>
           </h2>
-          <p className="text-lg md:text-2xl leading-relaxed text-white mt-4 max-w-3xl mx-auto text-center font-light">
-            As a one-stop Advisory & Delivery company, we help clients achieve
-            ambitious goals in the digital economy.
-          </p>
+          {/* Mobile-Only Layout */}
+          <div className="block md:hidden text-left max-w-lg mx-auto px-4 mt-8">
+            <h3 className="text-xl font-bold text-white mb-2 tracking-wide uppercase leading-tight">
+              CUSTOMER <br /> SERVICES
+            </h3>
+            <p className="text-sm text-white/85 leading-relaxed font-light">
+              Our teams of technologists, strategists and designers deliver powerful digital experiences. We specialize in 11 industries across 55+ countries & regions, delivering innovative solutions to our customers' most challenging problems. We help clients achieve ambitious goals and drive scalable real-world impact in the digital economy.
+            </p>
+          </div>
+
+
         </div>
 
         {/* Cards Container */}
-        <div className="w-full flex items-center overflow-hidden">
+        <div className="w-full flex items-center overflow-hidden mt-8 md:mt-0">
           <div
             ref={cardsContainerRef}
             className="flex flex-nowrap gap-6 md:gap-8 lg:gap-12 xl:gap-16 px-4 sm:px-6 md:px-8 lg:px-12 mt-8"

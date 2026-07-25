@@ -1,11 +1,14 @@
+import React, { useState } from "react";
 import { solutions } from "./Solution";
 import SolutionCard from "../components/SolutionCard";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import Header from "./Header";
+import SolutionContactModal from "./SolutionContactModal";
 
 const Solutions = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1a1a2e]">
       {/* Header Section */}
@@ -64,13 +67,19 @@ const Solutions = () => {
             business needs. Let's discuss your requirements today.
           </p>
           <button
-            onClick={() => navigate("/contact-us")}
+            onClick={() => setIsModalOpen(true)}
             className="px-8 py-3 bg-gradient-to-r from-[#EA6220] to-[#ff724a] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#EA6220]/40 transition-all duration-300 transform hover:scale-105"
           >
             Get in Touch
           </button>
         </div>
       </div>
+
+      <SolutionContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        solutionName="our Customized Solutions"
+      />
     </div>
   );
 };

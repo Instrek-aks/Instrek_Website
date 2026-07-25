@@ -367,13 +367,13 @@ const BlogPost = () => {
       <div className="min-h-screen bg-[#121212] text-white flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Blog Post Not Found
+            Insight Article Not Found
           </h1>
           <button
             onClick={handleBackClick}
             className="text-[#ea4820] hover:text-[#ea4820]/80 transition-colors"
           >
-            Return to Blog List
+            Return to Industry Insights
           </button>
         </div>
       </div>
@@ -462,7 +462,7 @@ const BlogPost = () => {
               className="flex items-center gap-2 text-white bg-[#ea4820] hover:bg-[#ea4820]/90 px-3 sm:px-4 py-2 rounded-lg w-max transition-all duration-300 text-sm sm:text-base"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              Back to Blogs
+              Back to Industry Insights
             </button>
             <div className="flex gap-3 sm:gap-4">
               <button className="text-gray-400 hover:text-[#ea4820] transition-colors duration-300 flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg hover:bg-[#ea4820]/10 text-sm sm:text-base">

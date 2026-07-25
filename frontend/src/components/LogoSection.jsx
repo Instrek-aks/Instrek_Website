@@ -39,7 +39,7 @@ export const LogoSection = ({
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 
+                className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 
                            flex items-center justify-center relative
                            hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10
                            group transition-all duration-300"
@@ -50,7 +50,7 @@ export const LogoSection = ({
                 </div>
 
                 {/* Logo Image Wrapper */}
-                <div className="w-full h-full flex justify-center items-center p-3 sm:p-4 bg-transparent z-0">
+                <div className="w-full h-full flex justify-center items-center p-2 sm:p-3 md:p-4 bg-transparent z-0">
                   <img
                     src={logo.image}
                     alt={logo.name}

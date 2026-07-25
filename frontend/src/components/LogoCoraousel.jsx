@@ -50,10 +50,10 @@ const clientLogos = [
 export const LogoCarousel = () => {
   return (
     <div
-      className="bg-black flex flex-col justify-center py-20 px-2"
+      className="bg-black flex flex-col justify-center pt-8 pb-10 md:pt-8 md:pb-16 px-2"
       style={{ fontFamily: "'PP Neue Montreal', sans-serif" }}
     >
-      <div className="max-w-7xl mx-auto w-full space-y-24">
+      <div className="max-w-7xl mx-auto w-full space-y-12 md:space-y-24">
         <LogoSection
           title="OUR KEY"
           subtitle="ENGAGEMENTS"
