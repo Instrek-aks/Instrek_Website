@@ -182,7 +182,7 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 45s linear infinite;
   will-change: transform;
 }
 
@@ -225,7 +225,7 @@ body {
 /* Responsive utilities */
 @media (max-width: 640px) {
   .animate-scroll {
-    animation-duration: 20s;
+    animation-duration: 35s;
   }
 }
 
