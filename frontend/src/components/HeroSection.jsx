@@ -8,7 +8,7 @@ const slides = [
     title2: "Intelligent Systems",
     description:
       "Evaluate your organization's AI maturity and prepare for future growth. Take the Instrek AI Readiness Assessment to map your capabilities and design a customized implementation roadmap.",
-    link: "https://sch-t.netlify.app/",
+    link: "https://ai-readiness.instrek.com/",
     buttonText: "Access AI Readiness Assessment",
     temperature: "30°C",
     weather: "Partly Cloudy",
@@ -20,7 +20,7 @@ const slides = [
     title2: "Strategy Converge",
     description:
       "Identify vulnerabilities and protect your systems against emerging threats. Use the GCC AI Security Risk Engine to assess risk levels and ensure robust security compliance.",
-    link: "https://sca1-t.netlify.app/",
+    link: "https://gcc-security.instrek.com/",
     buttonText: "Launch AI Security Risk Engine",
     temperature: "26°C",
     weather: "Clear",
