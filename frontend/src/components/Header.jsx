@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react"; // Icons
+import { Menu, X, ChevronDown } from "lucide-react"; // Icons
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useScrollPosition } from "./useScrollPosition";
 
@@ -37,6 +37,7 @@ const LinkedInSubscribeButton = ({ className = "" }) => (
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -68,6 +69,12 @@ const Header = () => {
       // If we're on services page, set active menu to Services
       if (pathname === "/services-page") {
         setActiveMenu("Services");
+        return;
+      }
+
+      // If we're on solutions page or detail page, set active menu to Our Solutions
+      if (pathname === "/solutions" || pathname.startsWith("/solutions/")) {
+        setActiveMenu("Our Solutions");
         return;
       }
 
@@ -199,8 +206,93 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-5">
-          {menuItems.map((item) =>
-            item.isHashLink ? (
+          {menuItems.map((item) => {
+            if (item.label === "Our Solutions") {
+              return (
+                <div key={item.label} className="relative group py-2">
+                  <button
+                    className={`flex items-center gap-1 px-3 py-2 text-xl font-medium transition-all duration-300 hover:text-[#EA6220] ${
+                      activeMenu === item.label ? "text-[#EA6220]" : "text-white"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+                  </button>
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-0 w-72 bg-[#181344] border border-white/10 rounded-xl shadow-2xl py-2.5 z-50 transition-all duration-300 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                    <a
+                      href="https://ai-readiness.instrek.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                    >
+                      AI Readiness
+                    </a>
+                    <a
+                      href="https://gcc-security.instrek.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                    >
+                      GCC Risk Security
+                    </a>
+                    <div className="my-1.5 border-t border-white/10"></div>
+                    <Link
+                      to="/solutions/podarmor"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      PodArmor
+                    </Link>
+                    <Link
+                      to="/solutions/touraj"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      Touraj
+                    </Link>
+                    <Link
+                      to="/solutions/blockchain-zti"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      Blockchain & Zero Trust Identity
+                    </Link>
+                    <Link
+                      to="/solutions/medicare"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      Medicare
+                    </Link>
+                    <Link
+                      to="/solutions/ekvaani"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      EkVaani
+                    </Link>
+                    <Link
+                      to="/solutions/ai-cctv"
+                      className="block px-5 py-2 text-[15px] font-medium text-white/90 hover:text-[#EA6220] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      AI CCTV & Video Analytics
+                    </Link>
+                    <div className="my-1.5 border-t border-white/10"></div>
+                    <Link
+                      to="/solutions"
+                      className="block px-5 py-2 text-[15px] font-semibold text-[#EA6220] hover:text-[#ff724a] hover:bg-white/5 transition-all duration-200"
+                      onClick={() => setActiveMenu("Our Solutions")}
+                    >
+                      View All Solutions
+                    </Link>
+                  </div>
+                </div>
+              );
+            }
+
+            return item.isHashLink ? (
               <a
                 key={item.label}
                 href={item.link}
@@ -228,8 +320,8 @@ const Header = () => {
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#EA6220] to-white animate-fade-in"></div>
                 )}
               </Link>
-            )
-          )}
+            );
+          })}
           {/* LinkedIn Newsletter Button */}
           <LinkedInSubscribeButton />
         </nav>
@@ -246,14 +338,129 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu with transition */}
       <div
-        className={`md:hidden px-6  space-y-4 bg-[#181344] text-white transition-all duration-300 ease-in-out ${
+        className={`md:hidden px-6 space-y-4 bg-[#181344] text-white transition-all duration-300 ease-in-out ${
           menuOpen
-            ? "opacity-100 max-h-96"
+            ? "opacity-100 max-h-[800px] py-4 overflow-y-auto"
             : "opacity-0 max-h-0 overflow-hidden"
         }`}
       >
-        {menuItems.map((item) =>
-          item.isHashLink ? (
+        {menuItems.map((item) => {
+          if (item.label === "Our Solutions") {
+            return (
+              <div key={item.label} className="space-y-2">
+                <button
+                  onClick={() => setSolutionsOpen(!solutionsOpen)}
+                  className="flex items-center justify-between w-full text-base font-medium transition-all duration-300 hover:text-[#EA6220] text-gray-300"
+                >
+                  <span>{item.label}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-300 ${
+                      solutionsOpen ? "rotate-180 text-[#EA6220]" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${
+                    solutionsOpen ? "max-h-[500px] opacity-100 py-1" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <a
+                    href="https://ai-readiness.instrek.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    AI Readiness
+                  </a>
+                  <a
+                    href="https://gcc-security.instrek.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    GCC Risk Security
+                  </a>
+                  <div className="border-t border-white/5 my-1"></div>
+                  <Link
+                    to="/solutions/podarmor"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    PodArmor
+                  </Link>
+                  <Link
+                    to="/solutions/touraj"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    Touraj
+                  </Link>
+                  <Link
+                    to="/solutions/blockchain-zti"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    Blockchain & Zero Trust Identity
+                  </Link>
+                  <Link
+                    to="/solutions/medicare"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    Medicare
+                  </Link>
+                  <Link
+                    to="/solutions/ekvaani"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    EkVaani
+                  </Link>
+                  <Link
+                    to="/solutions/ai-cctv"
+                    className="block text-sm text-gray-400 hover:text-[#EA6220] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    AI CCTV & Video Analytics
+                  </Link>
+                  <div className="border-t border-white/5 my-1"></div>
+                  <Link
+                    to="/solutions"
+                    className="block text-sm font-semibold text-[#EA6220] hover:text-[#ff724a] py-1 transition-colors"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setActiveMenu("Our Solutions");
+                    }}
+                  >
+                    View All Solutions
+                  </Link>
+                </div>
+              </div>
+            );
+          }
+
+          return item.isHashLink ? (
             <a
               key={item.label}
               href={item.link}
@@ -275,8 +482,8 @@ const Header = () => {
             >
               {item.label}
             </Link>
-          )
-        )}
+          );
+        })}
         {/* LinkedIn Newsletter Button - Mobile */}
         <div className="pb-4 pt-1">
           <LinkedInSubscribeButton className="w-full justify-center py-2" />
