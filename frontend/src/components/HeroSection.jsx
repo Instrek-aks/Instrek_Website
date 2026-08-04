@@ -21,7 +21,7 @@ const slides = [
     description:
       "Identify vulnerabilities and protect your systems against emerging threats. Use the GCC AI Security Risk Engine to assess risk levels and ensure robust security compliance.",
     link: "https://gcc-security.instrek.com/",
-    buttonText: "Launch AI Security Risk Engine",
+    buttonText: "Launch GCC Security Risk Engine",
     temperature: "26°C",
     weather: "Clear",
   },
