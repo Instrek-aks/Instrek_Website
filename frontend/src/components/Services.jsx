@@ -655,35 +655,22 @@ const droneCardData = [
     impact:
       "Reducing energy bills and carbon footprints, our systems help communities embrace green energy at scale.",
   },
-  {
-    titleLine1: "Electric Vehicles",
-    titleLine2: "(EVs)",
-    description: "Building the EV ecosystem-2W, 3W, batteries & beyond.",
-    image: "/optimized/electric.webp",
-    headline: "Empowering eMobility Ecosystems",
-    overview:
-      "We support India's EV transition with solutions in vehicle assembly, battery tech, and job-ready EV training programs.",
-    capabilities: [
-      {
-        image: "/capabilities/electric-scooters-copy.jpg",
-        text: "E-scooters, 3W passenger & cargo EVs",
-      },
-      {
-        image: "/capabilities/batterydia.webp",
-        text: "Battery diagnostics & LFP solutions",
-      },
-      {
-        image: "/optimized/images/workforceTrain.webp",
-        text: "EV maintenance & repair labs",
-      },
-      {
-        image: "/capabilities/EVmaintance-copy.jpg",
-        text: "Integrated EV education ecosystem",
-      },
-    ],
-    impact:
-      "Driving clean, future-ready mobility through innovation and inclusive workforce development.",
-  },
+  // Electric Vehicles (EVs) — hidden for now
+  // {
+  //   titleLine1: "Electric Vehicles",
+  //   titleLine2: "(EVs)",
+  //   description: "Building the EV ecosystem-2W, 3W, batteries & beyond.",
+  //   image: "/optimized/electric.webp",
+  //   headline: "Empowering eMobility Ecosystems",
+  //   overview: "We support India's EV transition with solutions in vehicle assembly, battery tech, and job-ready EV training programs.",
+  //   capabilities: [
+  //     { image: "/capabilities/electric-scooters-copy.jpg", text: "E-scooters, 3W passenger & cargo EVs" },
+  //     { image: "/capabilities/batterydia.webp", text: "Battery diagnostics & LFP solutions" },
+  //     { image: "/optimized/images/workforceTrain.webp", text: "EV maintenance & repair labs" },
+  //     { image: "/capabilities/EVmaintance-copy.jpg", text: "Integrated EV education ecosystem" },
+  //   ],
+  //   impact: "Driving clean, future-ready mobility through innovation and inclusive workforce development.",
+  // },
   {
     titleLine1: "Artificial",
     titleLine2: "Intelligence",
@@ -894,67 +881,38 @@ const droneCardData = [
     impact:
       "Boosting campaign ROI, engagement, and learning through immersive, frictionless interactions.",
   },
-  {
-    titleLine1: "Tech",
-    titleLine2: "Skilling",
-    description:
-      "Hands-on training in AI, Drones, EVs & more. Learn today, earn tomorrow.",
-    image: "/optimized/images/strategic.webp",
-
-    headline: "Building India's Tech Talent from Grassroots to Greatness",
-    overview:
-      "From Grade 1 to 70+, our hands-on training covers AI, EVs, Drones, IoT, and Robotics using certified trainers and modular tools.",
-    capabilities: [
-      {
-        image: "/capabilities/Handson.webp",
-        text: "Hands on Drone Trainings",
-      },
-      {
-        image: "/capabilities/HandsOnRobo.webp",
-        text: "Hands on Robotics Trainings",
-      },
-      {
-        image: "/optimized/images/strategic.webp",
-        text: "Hands on Embedded Designs Trainings",
-      },
-      {
-        image: "/capabilities/RenewableLabs.webp",
-        text: "Hand on EV & Solar Trainings",
-      },
-    ],
-    impact:
-      "Creating a tech-savvy workforce that stays, grows, and innovates locally.",
-  },
-  {
-    titleLine1: "AI Driven Examination &",
-    titleLine2: " Document Solutions",
-    description:
-      "Smart automation across industries-from robotics to utilities.",
-    image: "/capabilities/intelligent.webp",
-    headline: "Automation Built from the Core",
-    overview:
-      "We deliver secure, efficient, AI-powered solutions spanning the entire examination lifecycle with smooth, error-free pre- and post-exam management. Our end-to-end OMR services include precision printing, advanced data capture software, and secure, accurate processing. We offer high-quality scanning with AI-based OCR and intelligent document management systems for secure, searchable digital assets. Additionally, we develop tailored portals and on-screen marking solutions for seamless, technology-driven assessment experiences.",
-    capabilities: [
-      {
-        image: "/capabilities/Aimentor.webp",
-        text: "Examination Lifecycle Solutions",
-      },
-      {
-        image: "/optimized/images/strategic.webp",
-        text: "OMR Solutions",
-      },
-      {
-        image: "/capabilities/consentveri.webp",
-        text: "Scanning & Digitization",
-      },
-      {
-        image: "/capabilities/dashboard.webp",
-        text: "Custom Platforms & On-Screen Marking",
-      },
-    ],
-    impact:
-      "Powering scalable, device-level intelligence to automate operations and enhance control.",
-  },
+  // Tech Skilling — hidden for now
+  // {
+  //   titleLine1: "Tech",
+  //   titleLine2: "Skilling",
+  //   description: "Hands-on training in AI, Drones, EVs & more. Learn today, earn tomorrow.",
+  //   image: "/optimized/images/strategic.webp",
+  //   headline: "Building India's Tech Talent from Grassroots to Greatness",
+  //   overview: "From Grade 1 to 70+, our hands-on training covers AI, EVs, Drones, IoT, and Robotics using certified trainers and modular tools.",
+  //   capabilities: [
+  //     { image: "/capabilities/Handson.webp", text: "Hands on Drone Trainings" },
+  //     { image: "/capabilities/HandsOnRobo.webp", text: "Hands on Robotics Trainings" },
+  //     { image: "/optimized/images/strategic.webp", text: "Hands on Embedded Designs Trainings" },
+  //     { image: "/capabilities/RenewableLabs.webp", text: "Hand on EV & Solar Trainings" },
+  //   ],
+  //   impact: "Creating a tech-savvy workforce that stays, grows, and innovates locally.",
+  // },
+  // AI Driven Examination & Document Solutions — hidden for now
+  // {
+  //   titleLine1: "AI Driven Examination &",
+  //   titleLine2: " Document Solutions",
+  //   description: "Smart automation across industries-from robotics to utilities.",
+  //   image: "/capabilities/intelligent.webp",
+  //   headline: "Automation Built from the Core",
+  //   overview: "We deliver secure, efficient, AI-powered solutions spanning the entire examination lifecycle...",
+  //   capabilities: [
+  //     { image: "/capabilities/Aimentor.webp", text: "Examination Lifecycle Solutions" },
+  //     { image: "/optimized/images/strategic.webp", text: "OMR Solutions" },
+  //     { image: "/capabilities/consentveri.webp", text: "Scanning & Digitization" },
+  //     { image: "/capabilities/dashboard.webp", text: "Custom Platforms & On-Screen Marking" },
+  //   ],
+  //   impact: "Powering scalable, device-level intelligence to automate operations and enhance control.",
+  // },
   {
     titleLine1: "High performing platforms",
     titleLine2: "and applications",

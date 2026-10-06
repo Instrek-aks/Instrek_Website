@@ -456,7 +456,7 @@ const Footer = () => {
     coreServices: [
       { name: "Drones & UAVs", serviceKey: "drones" },
       { name: "Solar & Energy", serviceKey: "solar" },
-      { name: "Electric Vehicles", serviceKey: "evs" },
+      // { name: "Electric Vehicles", serviceKey: "evs" }, // hidden for now
       { name: "Artificial Intelligence", serviceKey: "ai" },
       { name: "Internet of Things (IoT)", serviceKey: "iot" },
       { name: "Robotics Systems", serviceKey: "embedded" },
@@ -465,7 +465,7 @@ const Footer = () => {
       { name: "Data & Analytics", serviceKey: "analytics" },
       { name: "Cloud & DevOps", serviceKey: "cloud" },
       { name: "AR/VR & Microapps", serviceKey: "arvr" },
-      { name: "Tech Skilling", serviceKey: "skilling" },
+      // { name: "Tech Skilling", serviceKey: "skilling" }, // hidden for now
       { name: "Smart Cities", serviceKey: "smartCities" },
       { name: "Blockchain & Identity", serviceKey: "blockchain" },
     ],
