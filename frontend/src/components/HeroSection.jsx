@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const slides = [
   {
-    desktopImage: "/optimized/pic4_main.webp",
-    mobileImage: "/optimized/pic4_mainM.webp",
+    desktopImage: "/hr1.png",
+    mobileImage: "/hr1.png",
     title1: "Transforming Vision into",
     title2: "Intelligent Systems",
     description:
@@ -14,8 +14,8 @@ const slides = [
     weather: "Partly Cloudy",
   },
   {
-    desktopImage: "/cy.png",
-    mobileImage: "/cy.png",
+    desktopImage: "/hr2.png",
+    mobileImage: "/hr2.png",
     title1: "Where Data, Technology &",
     title2: "Strategy Converge",
     description:
@@ -91,8 +91,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r transition-all duration-1000 ease-in-out from-white via-white/85 to-transparent opacity-85 md:opacity-85" />
+      {/* Gradient Overlay Removed */}
 
       {/* Text Content */}
       <div className="relative z-20 w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-start max-w-4xl mx-auto sm:mx-0">
